@@ -1,6 +1,6 @@
 # Amazon Managed Service for Apache Flink
 
-_Before Amazon Kinesis Data Streams_
+_Before Amazon Kinesis Data Analytics_
 
 Amazon Managed Service for Apache Flink is a fully managed AWS service that facilitates the deployment, scaling, and management of Apache Flink applications. Apache Flink is a powerful, open-source framework for real-time stream processing, capable of handling high-throughput, low-latency workloads. It allows for the processing of continuous data streams, making it ideal for applications requiring real-time analytics, fault tolerance, and diverse aggregation tasks over time windows.
 
