@@ -66,29 +66,48 @@ Data in DynamoDB is distributed across multiple partitions based on the **partit
 
 ## Auto Scaling and Performance
 
-DynamoDB Auto Scaling adjusts capacity units to meet changing demands based on predefined utilization metrics. However, for traffic spikes (e.g., during events), Application Auto Scaling with predefined schedules can better accommodate predictable load changes.
+ While DynamoDB Auto Scaling is effective for gradually adjusting capacity in response to changing access patterns, it might not always scale up quickly enough to accommodate sudden, massive spikes in traffic, such as those expected during a major sale event. Auto Scaling adjusts capacity units based on predefined utilization metrics and thresholds, which can introduce a lag between the onset of increased demand and the scaling action, potentially leading to Provisioned Throughput Exceptions during periods of rapid traffic increase.
+
+Application Auto Scaling with pre-defined schedules is ideal for this scenario, as it allows the company to automatically scale up DynamoDB capacity during known periods of high traffic and scale down during low-traffic times.
 
 ## Caching with DynamoDB Accelerator (DAX)
+
+As datasets grow, the primary key design remains crucial, but for read-intensive workloads, the implementation of an in-memory cache can be a game-changer in maintaining high performance. 
 
 DAX is an in-memory cache that reduces read times to microseconds for high-performance applications. It supports:
 
 - **Item Cache:** Caches items based on primary key values for GetItem requests.
 - **Query Cache:** Stores result sets for Query and Scan operations.
 
-Caching helps reduce the database load for read-intensive workloads, especially in scenarios where the dataset is too large to fit in memory on a single machine.
+A DAX cluster consists of one or more nodes. Each node runs its own instance of the DAX caching software. One of the nodes serves as the primary node for the cluster. Additional nodes (if present) serve as read replicas. 
+
+In a DAX cluster, throttling can occur if the request rate exceeds the capacity of the DAX cluster itself. Adding more nodes to the cluster increases its capacity and can help mitigate this issue or addin retry logic.
 
 ## Global Tables
 
 DynamoDB’s global tables provide multi-Region, multi-active replication, making it ideal for globally distributed applications requiring low-latency access. Data changes propagate to all specified AWS regions, allowing users to access data with minimal delay from anywhere in the world.
 
-### Monitoring and Consistency
+DynamoDB global tables are ideal for massively scaled applications with globally dispersed users. In such an environment, users expect very fast application performance. Global tables provide automatic multi-active replication to AWS Regions worldwide. They enable you to deliver low-latency data access to your users no matter where they are located.
 
-- **ReplicationLatency** metric (CloudWatch) tracks data synchronization delay across regions.
-- **Time To Live (TTL):** Global tables allow TTL configuration in one region, automatically replicating the setting to other regions.
+- **Monitoring:** You can use CloudWatch to observe the metric `ReplicationLatency`. This tracks the elapsed time between when an item is written to a replica table, and when that item appears in another replica in the global table. It’s expressed in milliseconds and is emitted for every source-Region and destination-Region pair. This metric is kept at the source Region. This is the only CloudWatch metric provided by Global Tables v2
+
+- **Time To Live (TTL):** With global tables you configure TTL in one Region, and that setting is auto replicated to the other Region(s). When an item is deleted via a TTL rule, that work is performed without consuming Write Units on the source table - but the target table(s) will incur Replicated Write Unit costs.
+
+- **Consistency:** Global tables employ a last-writer-wins reconciliation method to handle write conflicts, which can occur when multiple applications update the same item in different regions at the same time. This approach simplifies the design for developers by automatically resolving conflicts without the need for custom conflict resolution logic.
+
+- **Streams:** Each global table maintains its own DynamoDB Stream that captures all write operations performed on the table. This stream includes write activities from every region that forms part of the global table. If you want processed local writes but not replicated writes, you can add your own Region attribute to each item. Then you can use a Lambda event filter to invoke only the Lambda for writes in the local Region.
 
 ## Streams
 
-DynamoDB Streams captures all changes to table items, storing them in shards organized by sequence number, enabling real-time data processing. Stream records, each representing a single data modification, are automatically removed after 24 hours. Streams can be paired with AWS Lambda for event-driven processing, allowing integration with external systems for real-time synchronization or analytics.
+Amazon DynamoDB stream is an ordered flow of information about changes to items in Amazon DynamoDB table. When you enable a stream on a table, DynamoDB captures information about every modification to data items in the table. Whenever an application creates, updates, or deletes items in the table, DynamoDB Streams writes a stream record with the primary key attributes of the items that were modified. A stream record contains information about a data modification to a **single** item in a DynamoDB table. It can be chained with an AWS Lambda function that will be triggered to react to these changes.
+
+A stream consists of stream records. Each stream record represents a single data modification in the DynamoDB table to which the stream belongs. Each stream record is assigned a sequence number, reflecting the order in which the record was published to the stream.
+
+Stream records are organized into groups, or shards. Each shard acts as a container for multiple stream records, and contains information required for accessing and iterating through these records. The stream records within a shard are removed automatically **after 24 hours**.
+
+You can enable a stream on a new table when you create it using the AWS CLI or one of the AWS SDKs. You can also enable or disable a stream on an existing table, or change the settings of a stream. DynamoDB Streams operates asynchronously, so there is no performance impact on a table if you enable a stream.
+
+AWS maintains separate endpoints for DynamoDB and DynamoDB Streams. To work with database tables and indexes, your application must access a DynamoDB endpoint. To read and process DynamoDB Streams records, your application must access a DynamoDB Streams endpoint in the same Region. To read and process a stream, your application must connect to a DynamoDB Streams endpoint and issue API requests.
 
 ## PartiQL Support
 
