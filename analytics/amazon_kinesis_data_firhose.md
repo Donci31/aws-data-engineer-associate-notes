@@ -22,3 +22,19 @@ Unlike Amazon Kinesis Data Streams, which supports multiple consumers, Kinesis D
 
 ### Lambda functions
 AWS Lambda cannot be set as a destination for Kinesis Data Firehose, as Firehose’s purpose is focused on streaming data delivery to specific data storage or analytics services rather than invoking additional processing functions. For Lambda-based processing, users would instead leverage Kinesis Data Streams, where Lambda can act as a consumer.
+
+## Streams vs Firehose
+
+| Feature                       | Kinesis Data Streams                                 | Kinesis Data Firehose                                      |
+|-------------------------------|-----------------------------------------------------|------------------------------------------------------------|
+| **Use Case**                  | Real-time data processing and streaming analytics   | Data delivery to storage and analytics services            |
+| **Data Ingestion**            | Streams data in real-time                           | Buffers data before delivery                               |
+| **Data Processing**           | Supports real-time processing with Kinesis Analytics, Lambda, and custom consumers  | Limited processing; supports transformation via Lambda      |
+| **Data Delivery Targets**     | Kinesis Data Analytics, Lambda, custom applications | Amazon S3, Redshift, OpenSearch, HTTP endpoints, custom services |
+| **Latency**                   | Millisecond latency for real-time processing        | Higher latency due to data buffering (from 60 seconds to 15 minutes) |
+| **Data Retention**            | Up to 365 days, configurable                        | Temporary buffer; not designed for long-term retention     |
+| **Data Transformation**       | Requires custom code or Lambda processing           | Built-in transformation with Lambda integration            |
+| **Capacity Model**            | Shard-based; requires manual scaling               | Automatically scales based on incoming data volume         |
+| **Data Replay**               | Supports replays within retention period            | No data replay; delivers data to storage as a one-way pipeline |
+| **Cost Model**                | Pay-per-shard; based on read/write units            | Pay for data ingested and processed; includes a buffering cost |
+| **Ideal Workloads**           | Continuous real-time analytics, real-time ML, custom streaming applications | ETL, log analytics, data warehousing, batch data delivery |
