@@ -1,87 +1,112 @@
-# Amazon AppFlow
+# Amazon EventBridge
 
-Amazon AppFlow is a fully managed integration service that enables you to **securely transfer data between Software-as-a-Service (SaaS) applications** and AWS services. It provides a seamless way to ingest, transform, and transfer data without the need for building and maintaining custom API connectors, saving time and reducing dependency on skilled developer resources.
+Amazon EventBridge is a **serverless event bus service** designed to help applications react to events from **AWS services**, **custom applications**, or **SaaS applications**. It enables **event-driven architecture** by simplifying the ingestion, filtering, and routing of events to appropriate targets, facilitating decoupled microservices and system integration.
 
 ## Key Features and Capabilities
 
-### Data Integration
-- **Sources**:
-  - Popular SaaS applications, including:
-    - **Salesforce**
-    - **SAP**
-    - **Zendesk**
-    - **Slack**
-    - **ServiceNow**
-- **Destinations**:
-  - AWS services such as:
-    - **Amazon S3**
-    - **Amazon Redshift**
-  - Non-AWS destinations like **Snowflake** and **Salesforce**.
+### Event Sources
+1. **AWS Services**:
+   - Natively integrates with over **90 AWS services**.
+   - Developers don’t need to configure additional resources for ingestion.
+2. **SaaS Applications**:
+   - Direct integration with **third-party SaaS providers**, making it unique among AWS event-driven services.
+3. **Custom Applications**:
+   - Supports **custom events** from user applications using the AWS SDK.
 
-### Triggers for Flows
-Amazon AppFlow supports three types of triggers for running data flows:
-1. **Run on Demand**:
-   - Manually trigger the flow as needed.
-2. **Run on Event**:
-   - Automatically execute the flow in response to events from SaaS applications.
-3. **Run on Schedule**:
-   - Execute flows at recurring intervals, such as daily or weekly.
+### Event Targeting and Routing
+- **JSON-Based Event Structure**:
+  - Events follow a defined JSON structure.
+  - Rules can be created to filter events based on attributes in the event body.
+- **Targets**:
+  - Supports over **15 AWS services** as event targets, including:
+    - **AWS Lambda**
+    - **Amazon SQS**
+    - **Amazon SNS**
+    - **Amazon Kinesis Data Streams**
+    - **Amazon Kinesis Data Firehose**
+- **Flexible Event Rules**:
+  - **Event Patterns**:
+    - Define rules that respond to specific events (e.g., "an EC2 instance changes state").
+  - **Scheduled Events**:
+    - Define cron-like schedules for recurring events, such as invoking a Lambda function every hour.
 
-### Data Security and Encryption
-- **Encryption Options**:
-  - AWS provides **managed keys** and the option to use **customer-managed keys**.
-  - For customer-managed keys:
-    - Provides full control over encryption.
-    - Amazon AppFlow attaches a resource policy to the **KMS key**, granting access for operations.
-- **Secure Transfers**:
-  - Transfers data **encrypted over the public internet** or **privately via AWS PrivateLink**, ensuring security.
+## Advanced Capabilities
 
-### Incremental Data Transfers
-- Supports **incremental data transfer**, which only transfers:
-  - Records added or changed since the last successful flow run.
-  - Based on a **source timestamp field**, such as `CreatedDate`.
-  - Example:
-    - Transfer only newly created records while excluding previously transferred or unchanged data.
+1. **Event Buses**:
+   - **Event Bus Types**:
+     - **Default Event Bus**: For AWS service events.
+     - **Custom Event Buses**: For custom applications.
+     - **SaaS Event Buses**: For third-party SaaS applications.
+   - **Cross-Account Access**:
+     - Allows other AWS accounts to access your EventBus using **resource-based policies**.
+   - **Use Case**:
+     - Aggregate all events from multiple AWS accounts into a single account or region for centralized management.
 
-### Data Transformation
-- Built-in **transformation capabilities** allow you to:
-  - **Filter data** based on specified criteria.
-  - **Validate data** to ensure quality and consistency before transferring.
+2. **Event Archiving and Replay**:
+   - Archive events (all or filtered) sent to an event bus for:
+     - **Indefinite storage** or for a **specified retention period**.
+   - **Replay Events**:
+     - Reprocess archived events, useful for troubleshooting or testing new workflows.
 
-## Benefits
+3. **Schema Discovery and Registry**:
+   - **Schema Discovery**:
+     - Automatically infer the structure of events on your bus.
+   - **Schema Registry**:
+     - Enables developers to:
+       - Store and manage event schemas.
+       - Generate code bindings for applications to work seamlessly with event data.
+     - Schemas can be **versioned** to support evolving event structures.
 
-1. **Time and Cost Savings**:
-   - Eliminates the need for writing and maintaining custom integrations, freeing up IT resources.
-   - Leverages existing APIs for immediate deployment.
-2. **Empowers Non-Developers**:
-   - **Systems Administrators** and **business analysts** can quickly implement integrations without requiring technical expertise.
-3. **Scalable Integration**:
-   - Supports large-scale data flows between SaaS applications and AWS services, ensuring seamless scalability.
-4. **Flexible Data Transfer**:
-   - Flows can be triggered on-demand, by event, or on a set schedule, adapting to varied use cases.
-5. **Secure and Compliant**:
-   - Offers encryption with customer control and the option for private data transfer using AWS PrivateLink.
+4. **Permissions Management**:
+   - Manage **event bus permissions** with fine-grained controls.
+   - Examples:
+     - Allow/deny events from another AWS account or region.
+   - Use Case:
+     - Aggregate events across an **AWS Organization** in a central AWS account or region.
+
+## Performance and Limits
+
+- **Latency**:
+  - Typical latency is around **0.5 seconds**.
+- **Throughput**:
+  - Limited by default but can be increased upon request.
+- **Service Limits**:
+  - Predefined limits for event buses, rules, and targets, adjustable via AWS support.
+
+## Security
+
+- **IAM Policies**:
+  - Control which users and services can publish or subscribe to event buses.
+- **Cross-Account Access**:
+  - Resource-based policies enable secure sharing of event buses between accounts.
+- **Encryption**:
+  - Events are encrypted in transit using HTTPS.
 
 ## Example Use Cases
 
-1. **Customer Data Integration**:
-   - Pull contact records from Salesforce into Amazon Redshift for analytics.
-2. **Support Management**:
-   - Transfer support tickets from Zendesk to an Amazon S3 bucket for further analysis.
-3. **Batch Data Transfers**:
-   - Schedule recurring data syncs from Slack or SAP to Snowflake for consistent updates.
-4. **Event-Driven Workflows**:
-   - Trigger flows based on real-time events, such as new customer signups in Salesforce.
+1. **Event-Driven Applications**:
+   - React to **EC2 instance state changes** by triggering automated workflows using AWS Lambda.
+2. **Centralized Event Aggregation**:
+   - Aggregate events from all accounts in an **AWS Organization** to a single monitoring account for unified event processing.
+3. **SaaS Integration**:
+   - Automate workflows based on events from third-party tools like **Zendesk** or **Stripe**.
+4. **Operational Monitoring**:
+   - Forward AWS CloudTrail events to **Amazon Kinesis Data Streams** for real-time log analysis.
+5. **Scheduled Events**:
+   - Use cron-like scheduling to trigger periodic tasks, such as running maintenance scripts.
 
-## Features Summary Table
+## Summary Table
 
 | **Feature**                  | **Description**                                                                                             |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------|
-| **Source Applications**       | Salesforce, SAP, Zendesk, Slack, ServiceNow, and other SaaS applications.                                  |
-| **Destination Options**       | Amazon S3, Amazon Redshift, Snowflake, and more.                                                           |
-| **Triggers**                  | Run on demand, on schedule, or on event.                                                                   |
-| **Data Transformation**       | Filtering and validation capabilities for refining data before transfer.                                   |
-| **Incremental Transfers**     | Transfers only new or changed records since the last successful flow run.                                  |
-| **Encryption Options**        | AWS managed or customer-managed KMS keys for encrypting data during transit and at rest.                  |
-| **Secure Connectivity**       | Data transfer over the public internet (encrypted) or privately via AWS PrivateLink.                      |
-| **Ease of Use**               | Enables administrators and analysts to build integrations without coding.                                 |
+| **Event Sources**             | AWS services, SaaS applications, and custom applications.                                                  |
+| **Event Targets**             | Supports over 15 AWS services, including Lambda, SQS, SNS, and Kinesis.                                    |
+| **Event Structure**           | JSON-based events with rules for attribute-based filtering.                                                |
+| **Event Buses**               | Default, custom, and SaaS event buses. Can be shared across accounts and regions.                          |
+| **Archiving and Replay**      | Archive events indefinitely or for a defined period. Replay events for testing and debugging.              |
+| **Schema Registry**           | Automatically discover, version, and store schemas. Generate code bindings for application integration.    |
+| **Scheduling**                | Cron-like functionality for periodic tasks.                                                                |
+| **Latency**                   | ~0.5 seconds.                                                                                             |
+| **Throughput**                | Limited by default, adjustable via AWS support.                                                            |
+| **Cross-Account Access**      | Manage permissions to share event buses across AWS accounts or regions.                                    |
+| **Security**                  | IAM policies and encryption ensure secure event publishing and delivery.                                   |
