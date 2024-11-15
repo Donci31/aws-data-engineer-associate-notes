@@ -114,3 +114,22 @@ If you use a target tracking scaling policy in an Auto Scaling Group of EC2 inst
 2. **Queue Separation**: Use different queues for tasks with varying priorities or requirements.
 3. **Efficient Polling**: Opt for long polling to minimize costs and avoid excessive empty responses.
 4. **Security**: Implement encryption and fine-grained access controls to protect sensitive data.
+
+## SQS vs Kinesis Data Streams
+| Feature                        | Amazon SQS                                  | Amazon Kinesis Streams                     |
+|--------------------------------|---------------------------------------------|--------------------------------------------|
+| **Use Case**                   | Decouple and scale microservices, distributed systems, or serverless applications. | Real-time streaming and analytics of data. |
+| **Message Ordering**           | FIFO queues guarantee ordering; Standard queues do not. | Maintains strict order of records.         |
+| **Message Delivery**           | At-least-once (Standard), exactly-once (FIFO). | Exactly-once delivery for consumer applications. |
+| **Retention Period**           | 4 days (default), configurable up to 14 days. | 24 hours (default), configurable up to 365 days. |
+| **Max Message Size**           | 256 KB per message.                         | Up to 1 MB per record.                     |
+| **Message Processing**         | Polling-based; consumers retrieve messages. | Real-time streaming via shards.            |
+| **Concurrency**                | Horizontal scaling of consumers; handles thousands of messages per second. | Each shard supports 1 MB/s input and 2 MB/s output. |
+| **Use of Dead Letter Queues**  | Supports Dead Letter Queues for failed messages. | No direct support for DLQs; errors handled in application logic. |
+| **Latency**                    | Low latency (<10 ms for Standard).          | Millisecond latency for real-time data.    |
+| **Data Persistence**           | Limited to retention period.                | Streamed data is stored for replay within retention period. |
+| **Scalability**                | Fully managed, scales automatically.        | Requires manual shard management for scaling. |
+| **Integration with AWS Services** | Easy integration with Lambda, EC2, Auto Scaling, and S3. | Integrated with Lambda, analytics tools (e.g., Kinesis Data Analytics), and S3. |
+| **Security**                   | Supports HTTPS in transit and KMS encryption for message bodies. | Supports HTTPS in transit, KMS encryption, and fine-grained IAM policies. |
+| **Cost Model**                 | Pay per request and data transfer.          | Pay per shard-hour and data throughput.    |
+| **Common Use Cases**           | Job queues, asynchronous processing, decoupling application components. | Streaming logs, metrics, IoT data, and analytics in real-time. |
