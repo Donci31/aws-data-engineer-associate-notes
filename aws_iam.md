@@ -18,6 +18,12 @@ AWS Identity and Access Management (IAM) is a foundational service that provides
   - **Cross-Account Roles**: Enable secure interactions between AWS accounts.
   - **Instance Profiles**: Attach a role to an EC2 instance, granting it permissions to access AWS resources securely.
 
+### **Service Roles**:
+- IAM roles used by AWS services (e.g., Lambda, EC2, RDS).
+- Limited to actions within your account.
+- Must be stored in **instance profiles** for use with Amazon EC2.
+- **Note**: Each instance profile can contain only one role, and this limit cannot be increased.
+
 ## **IAM Policy Structure (JSON)**:
 IAM policies are JSON documents that contain statements defining permissions. Key fields include:
 
@@ -57,12 +63,6 @@ IAM policies are JSON documents that contain statements defining permissions. Ke
   ]
 }
 ```
-
-### **Service Roles**:
-- IAM roles used by AWS services (e.g., Lambda, EC2, RDS).
-- Limited to actions within your account.
-- Must be stored in **instance profiles** for use with Amazon EC2.
-- **Note**: Each instance profile can contain only one role, and this limit cannot be increased.
 
 ## **Access Control through Policies**
 Policies define what actions are permitted or denied for IAM identities or AWS resources. AWS evaluates these policies when a principal (user, role, or service) makes a request.
