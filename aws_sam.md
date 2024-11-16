@@ -49,4 +49,19 @@ The AWS SAM workflow involves several key steps:
 
 - **Supported IDEs**: AWS Toolkits for **Visual Studio Code**, **JetBrains**, **PyCharm**, and **IntelliJ** enable building, testing, debugging, deploying, and invoking Lambda functions directly within your IDE. These integrations make serverless application development more efficient and easier to manage.
 
+## Comparision
 
+| Feature                        | AWS SAM                                      | AWS CDK                                      | AWS CloudFormation                              |
+|--------------------------------|----------------------------------------------|----------------------------------------------|------------------------------------------------|
+| **Abstraction Level**          | High-level abstraction for serverless apps.  | High-level programming model using languages | Low-level infrastructure as code (IaC)        |
+| **Focus Area**                 | Serverless applications (Lambda, API Gateway, etc.) | General-purpose infrastructure, supports all AWS services | General-purpose infrastructure, supports all AWS services |
+| **Syntax/Language**            | YAML (simplified CloudFormation)             | Programming languages (TypeScript, Python, Java, etc.) | YAML or JSON (CloudFormation templates)         |
+| **Deployment Process**         | `sam build` to process code and prepare deployment, `sam deploy` to deploy | `cdk synth` generates CloudFormation, `cdk deploy` to deploy | Manually write and deploy YAML/JSON templates |
+| **Local Development & Testing**| `sam local invoke` for testing Lambda locally in a Docker container | No built-in local testing support, but integrates with other tools | No built-in local testing; requires deployment to AWS |
+| **Flexibility**                | Limited to serverless use cases              | Highly flexible, supports all AWS resources   | Fully flexible, supports all AWS resources     |
+| **Learning Curve**             | Easy for serverless apps, simplified syntax  | Steeper, requires programming knowledge       | Steepest, requires understanding of YAML/JSON and all AWS resources |
+| **Configuration**              | Simplified YAML configuration                | Code-based configuration with programming features (loops, conditionals) | Verbose YAML/JSON configuration                |
+| **Use Case**                   | Best for serverless workloads (Lambda, API Gateway, DynamoDB) | Best for complex, flexible, and dynamic infrastructure | Best for any AWS infrastructure, including complex setups |
+| **Local Testing**              | Yes, with `sam local invoke`                 | Limited, requires external tools             | No built-in support for local testing          |
+| **Versioning and Updates**     | Supports versioning of serverless resources  | Allows easy versioning and reuse of resources | Supports versioning through CloudFormation stacks |
+| **Ease of Use**                | Simplified, specifically for serverless apps | More flexible, requires coding skills         | Detailed but requires more effort and understanding |
