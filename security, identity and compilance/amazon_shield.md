@@ -1,49 +1,34 @@
-# AWS Secrets Manager
+# Amazon Shield
 
-AWS Secrets Manager is a fully managed service designed to securely store, manage, and rotate sensitive information such as API keys, passwords, and database credentials. It simplifies the management of secrets, enabling applications to retrieve them without storing them in code or environment variables.
+Amazon Shield is a managed Distributed Denial of Service (DDoS) protection service designed to safeguard AWS resources against network and application layer attacks. There are two levels of AWS Shield protection: **Shield Standard** and **Shield Advanced**. Both services help protect AWS customers from large-scale, sophisticated DDoS attacks, ensuring that applications and services remain available during potential disruptions.
 
-## Key Features:
+## Key Features of Amazon Shield:
 
-1. **Secret Rotation**:
-   - Secrets Manager allows you to configure automatic rotation of secrets at specified intervals (e.g., every X days).
-   - Rotation is automated using **AWS Lambda**, which can be customized to handle the logic of updating the secret and applying changes wherever needed.
-   
-2. **Integration with RDS**:
-   - Secrets Manager integrates with Amazon RDS (including MySQL, PostgreSQL, and Aurora), making it easy to store and manage database credentials.
-   - Database credentials are securely rotated, ensuring that applications always use the most current credentials without needing manual intervention.
+1. **AWS Shield Standard**:
+   - **Free Service**: Shield Standard is automatically enabled for all AWS customers and offers protection against common DDoS attacks without additional cost.
+   - **Network and Transport Layer Protection**: Shield Standard provides protection against basic attacks like SYN/UDP Floods, Reflection attacks, and other layer 3 and layer 4 attacks.
+   - **Automatic Protection**: Shield Standard automatically protects all AWS resources (e.g., EC2, ELB, CloudFront, and Route 53) from these common threats without needing to take further action.
 
-3. **Encryption with KMS**:
-   - Secrets stored in Secrets Manager are automatically encrypted using **AWS Key Management Service (KMS)**. This ensures that sensitive data, such as database passwords and API keys, are securely stored and accessible only to authorized users and applications.
+2. **AWS Shield Advanced**:
+   - **Paid Service**: Shield Advanced offers additional, more robust protection for customers who need enhanced security against larger and more sophisticated DDoS attacks. It costs $3,000 per month per organization.
+   - **Comprehensive Protection**: Shield Advanced protects against attacks targeting Amazon EC2, Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator, and Amazon Route 53. It goes beyond Shield Standard’s protection by offering defense against more sophisticated attacks on the application layer (Layer 7).
+   - **24/7 Access to the DDoS Response Team (DRT)**: Customers can access AWS's DDoS Response Team for guidance on mitigating attacks and improving security posture.
+   - **Protection from DDoS-related Usage Spikes**: Shield Advanced also covers additional charges that may arise due to usage spikes during a DDoS attack, such as increased traffic or resource consumption.
+   - **Application Layer Mitigation**: Shield Advanced works with **AWS WAF (Web Application Firewall)** to provide automatic application layer (Layer 7) DDoS mitigation. This feature evaluates and deploys AWS WAF rules to defend against malicious web traffic that targets your applications.
 
-4. **Multi-Region Support**:
-   - Secrets Manager supports replicating secrets across multiple AWS regions. 
-   - It keeps **read replicas** of a primary secret in sync across regions.
-   - In the case of regional failures or disaster recovery, you can promote a read replica to become a **standalone secret**.
-   - This is beneficial for use cases like **multi-region applications**, **disaster recovery strategies**, and multi-region database deployments.
+3. **Multi-Account Support**:
+   - Shield Advanced can be enabled on multiple AWS accounts under a single consolidated billing umbrella. Once enabled on each account via the AWS Management Console or API, it will provide DDoS protection across all linked AWS accounts, streamlining the management of DDoS defense across large environments.
 
-5. **Seamless Integration with Applications**:
-   - Applications can access secrets stored in Secrets Manager using the AWS SDK or API calls, eliminating the need to hard-code secrets into applications or store them in environment variables.
-   
-6. **Security and Compliance**:
-   - Secrets Manager is built with security in mind. It integrates with IAM to manage access permissions and audit the use of secrets with **AWS CloudTrail**.
-   - This helps maintain compliance with various security standards, including **HIPAA**, **SOC 2**, and **PCI DSS**.
+## Key Use Cases:
 
+1. **Protection for EC2, ELB, CloudFront, Global Accelerator, and Route 53**:
+   - Shield Advanced provides additional layers of protection for AWS resources, including EC2 instances, load balancers, and global distribution points like CloudFront and Route 53, ensuring that they remain resilient to large-scale DDoS attacks.
 
-## Comparison of Secrets Manager and Systems Manager Parameter Store
+2. **Enhanced Web Application Protection**:
+   - By using **AWS WAF** alongside Shield Advanced, customers can create custom rules to filter and block malicious web traffic, safeguarding web applications from sophisticated Layer 7 attacks such as SQL injection, cross-site scripting (XSS), and bot-driven attacks.
 
-| Feature                       | AWS Secrets Manager                | AWS Systems Manager Parameter Store     |
-|-------------------------------|------------------------------------|-----------------------------------------|
-| **Primary Use Case**           | Secure management of secrets (e.g., passwords, API keys) | Storage of configuration data, including non-sensitive values |
-| **Automatic Secret Rotation**  | Yes (automated via AWS Lambda)     | No (manual rotation)                   |
-| **Encryption**                 | Secrets are encrypted by default using AWS KMS | Parameter values can be encrypted with AWS KMS or stored as plaintext |
-| **Integration with RDS**       | Seamless integration for database credentials | No native integration with RDS        |
-| **Multi-Region Support**       | Yes (replication and read replicas) | No (only regional)                     |
-| **Cost**                       | $0.40 per secret per month + API call charges | Free (basic parameters), additional charges for KMS-encrypted parameters |
-| **Use Case Examples**          | Managing database credentials, API keys | Configuration data (e.g., application settings, network settings) |
-| **IAM Integration**            | Fine-grained IAM policies for secret access | Fine-grained IAM policies for parameter access |
-| **Audit and Logging**          | Integrated with AWS CloudTrail for full audit of secret usage | Integrated with AWS CloudTrail for parameter access audit |
-| **Access Methods**             | API, SDK, Lambda, AWS CLI         | API, SDK, Lambda, AWS CLI             |
+3. **Disaster Recovery and Availability**:
+   - With near real-time visibility into attacks, Shield Advanced enables quick responses to mitigate DDoS attacks, ensuring that critical applications remain online and operational.
 
-AWS Secrets Manager is specifically designed to handle sensitive information securely with the ability to automate secret rotation, integrate with Amazon RDS, and replicate secrets across multiple regions for disaster recovery. It provides robust security features, such as encryption with KMS and IAM-based access control.
-
-In contrast, **AWS Systems Manager Parameter Store** is a more general-purpose service for storing configuration data, which can also handle encrypted parameters but lacks the advanced secret management features (like automatic rotation and multi-region replication) provided by Secrets Manager. Parameter Store is typically used for less-sensitive data or configuration parameters that don’t require frequent rotation.
+4. **Cost Protection During Attacks**:
+   - Shield Advanced helps mitigate the financial impact of DDoS attacks by covering increased resource costs that might result from traffic spikes or higher usage associated with attack mitigation.
