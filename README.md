@@ -1,6 +1,6 @@
 # AWS Data Engineer Associate notes
 
-I Passed the AWS Certified Data Engineer – Associate Exam on November 22nd, 2024, and during my study journey I created the following notes. I hope they are useful to someone :D
+I passed the AWS Certified Data Engineer – Associate Exam on November 22nd, 2024, and during my study journey I created the following notes. I hope they are useful to someone :D
 
 ## Contents
 
@@ -41,5 +41,6 @@ It depends on your level of expertise. For me, it took about 40 hours to review 
 ## 📚 Additional Resources
 
 - [AWS Certified Data Engineer Associate 2025 - Hands On!](https://www.udemy.com/course/aws-data-engineer/?couponCode=24T4MT120424)
+- [Practice Exams | AWS Certified Data Engineer Associate 2024](https://www.udemy.com/course/practice-exams-aws-certified-data-engineer-associate/?couponCode=24T4MT120424)
+- [AWS Certified Data Engineer Associate DEA-C01 Practice Exam 2024](https://portal.tutorialsdojo.com/courses/aws-certified-data-engineer-associate-practice-exam-dea-c01/)
 - [Practice Exams | AWS Certified Data Engineer - Associate](https://www.udemy.com/course/practice-exams-aws-certified-data-engineer-associate-r/?couponCode=24T4MT120424)
-- The best practice exams I found were from Jon Bonso and Thomas Hass. The questions are very similar to the real ones and the explanations are extremely detailed. You'll find them on Tutorials Dojo and Udemy.
