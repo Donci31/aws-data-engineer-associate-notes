@@ -5,21 +5,103 @@ I passed the AWS Certified Data Engineer – Associate Exam on November 22nd, 20
 ## Contents
 
 ### Analytics
+- [Amazon Athena](contents/analytics/amazon_athena.md)
+- [Amazon EMR](contents/analytics/amazon_EMR.md)
+- [AWS Glue](contents/analytics/aws_glue.md)
+- [AWS Glue DataBrew](contents/analytics/aws_glue_databrew.md)
+- [AWS Lake Formation](contents/analytics/aws_lake_formation.md)
+- [Amazon Kinesis Data Firehose](contents/analytics/amazon_kinesis_data_firehose.md)
+- [Amazon Kinesis Data Streams](contents/analytics/amazon_kinesis_data_streams.md)
+- [Amazon Managed Service for Apache Flink](contents/analytics/amazon_managed_service_for_apache_flink.md)
+- [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](contents/analytics/amazon_streaming_apache_kafka.md)
+- [Amazon OpenSearch Service](contents/analytics/amazon_opensearch.md)
+- [Amazon QuickSight](contents/analytics/amazon_quicksight.md)
 
-[Athena](contents/analytics/amazon_athena.md)
+### Application Integration
+- [Amazon AppFlow](contents/application_integration/amazon_appflow.md)
+- [Amazon EventBridge](contents/application_integration/amazon_eventbridge.md)
+- [Amazon Managed Workflows for Apache Airflow (Amazon MWAA)](contents/application_integration/amazon_mwaa.md)
+- [Amazon Simple Notification Service (Amazon SNS)](contents/application_integration/amazon_sns.md)
+- [Amazon Simple Queue Service (Amazon SQS)](contents/application_integration/amazon_sqs.md)
+- [AWS Step Functions](contents/application_integration/aws_step_functions.md)
 
-<!-- TODO: Finish Analytics Index -->
+### Cloud Financial Management
+- [AWS Budgets](contents/cloud_financial_management/aws_budgets.md)
+- [AWS Cost Explorer](contents/cloud_financial_management/aws_cost_explorer.md)
 
 ### Compute
+- [AWS Batch](contents/compute/aws_batch.md)
+- [Amazon EC2](contents/compute/amazon_ec2.md)
+- [AWS Lambda](contents/compute/aws_lambda.md)
+- [AWS Serverless Application Model (AWS SAM)](contents/compute/aws_sam.md)
 
-[EC2](contents/compute/amazon_ec2.md)
+### Containers
+- [Amazon Elastic Container Registry (Amazon ECR)](contents/containers/amazon_ecr.md)
+- [Amazon Elastic Container Service (Amazon ECS)](contents/containers/amazon_ecs.md)
+- [Amazon Elastic Kubernetes Service (Amazon EKS)](contents/containers/amazon_eks.md)
 
-<!-- TODO: Finish Compute Index -->
+### Database
+- [Amazon DocumentDB (with MongoDB compatibility)](contents/databases/amazon_documentdb.md)
+- [Amazon DynamoDB](contents/databases/amazon_dynamodb.md)
+- [Amazon Keyspaces (for Apache Cassandra)](contents/databases/amazon_keyspaces.md)
+- [Amazon MemoryDB for Redis](contents/databases/amazon_memorydb_redis.md)
+- [Amazon Neptune](contents/databases/amazon_neptune.md)
+- [Amazon RDS](contents/databases/amazon_rds.md)
+- [Amazon Redshift](contents/databases/amazon_redshift.md)
 
-...
+### Developer Tools
+- [AWS CLI](contents/developer_tools/aws_cli.md)
+- [AWS Cloud9](contents/developer_tools/aws_cloud9.md)
+- [AWS Cloud Development Kit (AWS CDK)](contents/developer_tools/aws_cdk.md)
+- [AWS CodeBuild](contents/developer_tools/aws_code/aws_code_build.md)
+- [AWS CodeCommit](contents/developer_tools/aws_code/aws_code_commit.md)
+- [AWS CodeDeploy](contents/developer_tools/aws_code/aws_code_deploy.md)
+- [AWS CodePipeline](contents/developer_tools/aws_code/aws_code_pipeline.md)
 
-<!-- TODO: Do the other categories -->
+### Frontend Web and Mobile
+- [Amazon API Gateway](contents/frontend_web_and_mobile/amazon_api_gateway.md)
 
+### Machine Learning
+- [Amazon SageMaker](contents/machine_learning/amazon_sagemaker.md)
+
+### Management and Governance
+- [AWS CloudFormation](contents/management_and_governance/aws_cloudformation.md)
+- [AWS CloudTrail](contents/management_and_governance/aws_cloudtrail.md)
+- [Amazon CloudWatch](contents/management_and_governance/amazon_cloudwatch.md)
+- [Amazon CloudWatch Logs](contents/management_and_governance/amazon_cloudwatch_logs.md)
+- [AWS Config](contents/management_and_governance/aws_config.md)
+- [Amazon Managed Grafana](contents/management_and_governance/amazon_grafana.md)
+- [AWS Systems Manager](contents/management_and_governance/aws_systems_manager.md)
+- [AWS Well-Architected Tool](contents/management_and_governance/aws_well_architected_tool.md)
+
+### Migration and Transfer
+- [AWS Application Discovery Service](contents/migration_and_transfer/aws_application_discovery_service.md)
+- [AWS Application Migration Service](contents/migration_and_transfer/aws_application_migration_service.md)
+- [AWS Database Migration Service (AWS DMS)](contents/migration_and_transfer/aws_dms.md)
+- [AWS DataSync](contents/migration_and_transfer/aws_datasync.md)
+- [AWS Snow Family](contents/migration_and_transfer/aws_snow_family.md)
+- [AWS Transfer Family](contents/migration_and_transfer/aws_transfer_family.md)
+
+### Networking and Content Delivery
+- [Amazon Direct Connect](contents/networking/aws_direct_connect.md)
+- [AWS PrivateLink](contents/networking/aws_privatelink.md)
+- [Amazon Route 53](contents/networking/amazon_route53.md)
+- [Amazon VPC](contents/networking/vpc.md)
+
+### Security, Identity, and Compliance
+- [AWS Identity and Access Management (IAM)](contents/security_identity_and_compliance/aws_iam.md)
+- [AWS Key Management Service (AWS KMS)](contents/security_identity_and_compliance/aws_kms.md)
+- [Amazon Macie](contents/security_identity_and_compliance/amazon_macie.md)
+- [AWS Secrets Manager](contents/security_identity_and_compliance/aws_secrets_manager.md)
+- [AWS Shield](contents/security_identity_and_compliance/amazon_shield.md)
+- [AWS WAF](contents/security_identity_and_compliance/aws_waf.md)
+
+### Storage
+- [AWS Backup](contents/storage/aws_backup.md)
+- [Amazon Elastic Block Store (Amazon EBS)](contents/storage/amazon_ebs.md)
+- [Amazon Elastic File System (Amazon EFS)](contents/storage/amazon_efs.md)
+- [Amazon S3](contents/storage/amazon_s3.md)
+  
 ## 💡 FAQs
 
 ### Is it difficult?
