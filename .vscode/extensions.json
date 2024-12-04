@@ -1,0 +1,8 @@
+{
+	"recommendations": [
+		"EditorConfig.EditorConfig",
+		"DavidAnson.vscode-markdownlint",
+		"yzhang.markdown-all-in-one",
+		"aaron-bond.better-comments"
+	]
+}
