@@ -69,7 +69,7 @@ Data in DynamoDB is distributed across multiple partitions based on the **partit
 
 ## Auto Scaling and Performance
 
- While DynamoDB Auto Scaling is effective for gradually adjusting capacity in response to changing access patterns, it might not always scale up quickly enough to accommodate sudden, massive spikes in traffic, such as those expected during a major sale event. Auto Scaling adjusts capacity units based on predefined utilization metrics and thresholds, which can introduce a lag between the onset of increased demand and the scaling action, potentially leading to Provisioned Throughput Exceptions during periods of rapid traffic increase.
+    While DynamoDB Auto Scaling is effective for gradually adjusting capacity in response to changing access patterns, it might not always scale up quickly enough to accommodate sudden, massive spikes in traffic, such as those expected during a major sale event. Auto Scaling adjusts capacity units based on predefined utilization metrics and thresholds, which can introduce a lag between the onset of increased demand and the scaling action, potentially leading to Provisioned Throughput Exceptions during periods of rapid traffic increase.
 
 Application Auto Scaling with pre-defined schedules is ideal for this scenario, as it allows the company to automatically scale up DynamoDB capacity during known periods of high traffic and scale down during low-traffic times.
 

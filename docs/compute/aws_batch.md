@@ -8,31 +8,31 @@ AWS Batch can be integrated with **AWS Step Functions** to orchestrate complex w
 
 ### Run Batch Jobs as Docker Images
 
-  AWS Batch allows you to package your batch jobs as Docker images, enabling you to use custom environments, libraries, and dependencies for each job. This flexibility ensures that the execution environment is consistent across development, testing, and production.
+    AWS Batch allows you to package your batch jobs as Docker images, enabling you to use custom environments, libraries, and dependencies for each job. This flexibility ensures that the execution environment is consistent across development, testing, and production.
 
 ### Dynamic Provisioning of EC2 and Spot Instances
 
-  AWS Batch automatically provisions the necessary compute resources (such as EC2 instances and Spot Instances) based on the volume and requirements of the job. This dynamic scaling ensures efficient resource allocation, optimizing cost and performance. You don't need to manually configure instances or worry about over-provisioning or under-provisioning resources.
+    AWS Batch automatically provisions the necessary compute resources (such as EC2 instances and Spot Instances) based on the volume and requirements of the job. This dynamic scaling ensures efficient resource allocation, optimizing cost and performance. You don't need to manually configure instances or worry about over-provisioning or under-provisioning resources.
 
 ### Optimal Resource Allocation Based on Job Volume and Requirements
 
-  AWS Batch intelligently determines the best types and number of instances to run your jobs. It dynamically adjusts the compute resources to meet the needs of the workload, ensuring that the right balance of performance, cost, and capacity is achieved without manual intervention.
+    AWS Batch intelligently determines the best types and number of instances to run your jobs. It dynamically adjusts the compute resources to meet the needs of the workload, ensuring that the right balance of performance, cost, and capacity is achieved without manual intervention.
 
 ### Fully Serverless, No Need to Manage Clusters
 
-  With AWS Batch, you don't need to manage clusters, which significantly reduces operational overhead. AWS handles the provisioning, scaling, and management of compute resources for you, allowing you to focus on building and running your jobs, not on the infrastructure.
+    With AWS Batch, you don't need to manage clusters, which significantly reduces operational overhead. AWS handles the provisioning, scaling, and management of compute resources for you, allowing you to focus on building and running your jobs, not on the infrastructure.
 
 ### Pay Only for EC2 Instances Used During Job Execution
 
-  AWS Batch operates on a pay-as-you-go model, meaning you only pay for the EC2 instances that are used during job execution. This cost-efficient model ensures that you aren't charged for idle resources, and you only pay for the actual compute time needed to process your jobs.
+    AWS Batch operates on a pay-as-you-go model, meaning you only pay for the EC2 instances that are used during job execution. This cost-efficient model ensures that you aren't charged for idle resources, and you only pay for the actual compute time needed to process your jobs.
 
 ### Schedule Batch Jobs with CloudWatch Events
 
-  AWS Batch integrates with **Amazon CloudWatch Events**, enabling you to schedule batch jobs to run at specific times or in response to certain triggers. You can automate job execution by setting up event-driven triggers, ensuring that batch jobs are run without manual intervention.
+    AWS Batch integrates with **Amazon CloudWatch Events**, enabling you to schedule batch jobs to run at specific times or in response to certain triggers. You can automate job execution by setting up event-driven triggers, ensuring that batch jobs are run without manual intervention.
 
 ### Orchestrate Batch Jobs with AWS Step Functions
 
-  AWS Batch integrates seamlessly with **AWS Step Functions**, allowing you to orchestrate complex workflows that require multiple steps or services. For example, you can define a sequence of dependent jobs, including retries and error handling, to ensure that your batch workloads are processed in the correct order and with the desired outcomes.
+    AWS Batch integrates seamlessly with **AWS Step Functions**, allowing you to orchestrate complex workflows that require multiple steps or services. For example, you can define a sequence of dependent jobs, including retries and error handling, to ensure that your batch workloads are processed in the correct order and with the desired outcomes.
 
 ---
 

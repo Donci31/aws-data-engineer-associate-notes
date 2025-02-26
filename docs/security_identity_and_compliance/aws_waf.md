@@ -6,20 +6,20 @@ AWS WAF (Web Application Firewall) is a security service designed to protect web
 
 - **Layer 7 Protection**: Defends against attacks such as SQL injection, Cross-Site Scripting (XSS), and other common HTTP-based exploits.
 - **Deployment Options**:
-  - **Application Load Balancer** (ALB)
-  - **Amazon API Gateway**
-  - **Amazon CloudFront** (CDN solution)
-  - **AppSync GraphQL API**
-  - **Cognito User Pool**
+    - **Application Load Balancer** (ALB)
+    - **Amazon API Gateway**
+    - **Amazon CloudFront** (CDN solution)
+    - **AppSync GraphQL API**
+    - **Cognito User Pool**
 
 ## Key Components
 
 - **Web ACL (Web Access Control List)**: Defines a set of rules to filter web traffic based on conditions you specify. You can define rules to allow or block specific traffic patterns.
-  - **IP Set**: Allows up to 10,000 IP addresses; multiple rules can be used to handle more IPs.
-  - **HTTP conditions**: Includes HTTP headers, HTTP body, or URI strings.
-  - **Rate-Based Rules**: Useful for mitigating DDoS attacks by limiting requests based on the rate of incoming traffic.
-  - **Geo-Match**: Block traffic from specific countries.
-  - **Size Constraints**: Control request sizes to block oversized or abnormal requests.
+    - **IP Set**: Allows up to 10,000 IP addresses; multiple rules can be used to handle more IPs.
+    - **HTTP conditions**: Includes HTTP headers, HTTP body, or URI strings.
+    - **Rate-Based Rules**: Useful for mitigating DDoS attacks by limiting requests based on the rate of incoming traffic.
+    - **Geo-Match**: Block traffic from specific countries.
+    - **Size Constraints**: Control request sizes to block oversized or abnormal requests.
 - **Rule Groups**: Reusable sets of rules that can be added to Web ACLs for consistency and ease of management.
 - **Regional Deployment**: AWS WAF is region-specific, except when deployed with **Amazon CloudFront**, which provides global coverage through Edge Locations.
 

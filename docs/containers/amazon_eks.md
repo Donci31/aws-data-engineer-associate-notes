@@ -14,19 +14,19 @@ Amazon Elastic Kubernetes Service (EKS) is a fully managed service that simplifi
 ### Node Management
 
 1. **Managed Node Groups:**
-   - Nodes (EC2 instances) are automatically created and managed by EKS.
-   - Nodes are part of an Auto Scaling Group (ASG) for dynamic scalability.
-   - Supports **On-Demand** and **Spot Instances** for cost optimization.
+    - Nodes (EC2 instances) are automatically created and managed by EKS.
+    - Nodes are part of an Auto Scaling Group (ASG) for dynamic scalability.
+    - Supports **On-Demand** and **Spot Instances** for cost optimization.
 
 2. **Self-Managed Nodes:**
-   - Nodes are provisioned manually by the user and registered to the EKS cluster.
-   - Supports **Amazon EKS Optimized AMI** for quick setup.
-   - Offers flexibility but requires additional management.
+    - Nodes are provisioned manually by the user and registered to the EKS cluster.
+    - Supports **Amazon EKS Optimized AMI** for quick setup.
+    - Offers flexibility but requires additional management.
 
 3. **AWS Fargate:**
-   - A **serverless** option for running Kubernetes workloads.
-   - Removes the need to manage nodes.
-   - Ideal for applications requiring high scalability with minimal operational complexity.
+    - A **serverless** option for running Kubernetes workloads.
+    - Removes the need to manage nodes.
+    - Ideal for applications requiring high scalability with minimal operational complexity.
 
 ### Storage Integration
 

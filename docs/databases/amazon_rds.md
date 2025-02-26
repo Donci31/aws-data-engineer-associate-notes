@@ -104,9 +104,9 @@ While Amazon RDS supports multiple engines, **Amazon Aurora** is specifically op
 Upgrades to the database engine level require downtime. Even if your Amazon RDS DB instance uses a Multi-AZ deployment, both the primary and standby DB instances are upgraded at the same time. This causes downtime until the upgrade is complete, and the duration of the downtime varies based on the size of your database instance.
 
 - To minimize downtime, RDS applies operating system updates in a staged process:
-  1. Perform maintenance on the standby.
-  2. Promote the standby to primary.
-  3. Perform maintenance on the old primary, which becomes the new standby.
+    1. Perform maintenance on the standby.
+    2. Promote the standby to primary.
+    3. Perform maintenance on the old primary, which becomes the new standby.
 
 ### Warm Standby
 

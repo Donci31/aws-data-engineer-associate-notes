@@ -19,8 +19,8 @@ API Gateway supports both **containerized** and **serverless** workloads, making
 ## Caching and Performance Optimization
 
 - **API Caching**: You can enable **caching** in Amazon API Gateway to store responses from your API endpoints. This reduces the number of requests made to the backend, improving the **latency** of API calls and the overall performance.
-  - **Time-to-Live (TTL)**: You can set the **TTL** for cached responses, with the default being **300 seconds**. The maximum TTL is **3600 seconds**, and setting TTL to **0** disables caching.
-  - **Cache Efficiency**: By caching responses, you reduce load on the backend, improve response times, and lower operational costs.
+    - **Time-to-Live (TTL)**: You can set the **TTL** for cached responses, with the default being **300 seconds**. The maximum TTL is **3600 seconds**, and setting TTL to **0** disables caching.
+    - **Cache Efficiency**: By caching responses, you reduce load on the backend, improve response times, and lower operational costs.
 
 ## Deployment Strategies
 
@@ -59,9 +59,9 @@ API Gateway offers various options for user authentication:
 ## Custom Domain Name
 
 - **HTTPS Security**: API Gateway allows you to set up custom **domain names** with HTTPS security through integration with **AWS Certificate Manager (ACM)**.
-  - If using an **Edge-Optimized** endpoint, the certificate must reside in **us-east-1**.
-  - For **Regional** endpoints, the certificate must be in the API Gateway region.
-  - You must also configure a **CNAME** or **A-alias** record in **Route 53**.
+    - If using an **Edge-Optimized** endpoint, the certificate must reside in **us-east-1**.
+    - For **Regional** endpoints, the certificate must be in the API Gateway region.
+    - You must also configure a **CNAME** or **A-alias** record in **Route 53**.
 
 ## Use Cases
 

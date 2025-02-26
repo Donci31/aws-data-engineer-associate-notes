@@ -13,19 +13,19 @@ Amazon Managed Grafana is a fully managed service that provides a powerful platf
 - **Security**: The service is encrypted both in transit and at rest, ensuring that all your monitoring data remains secure. You can also integrate AWS Key Management Service (KMS) for managing encryption keys, providing enhanced control over data security.
 
 - **AWS Data Source Integration**: The service seamlessly integrates with various AWS services, allowing you to pull data directly from popular sources such as:
-  - **CloudWatch**: For monitoring AWS resources and applications.
-  - **OpenSearch**: For visualizing logs and search data.
-  - **Timestream**: For time-series data, ideal for IoT and operational applications.
-  - **Athena**: For querying S3 data using SQL.
-  - **Redshift**: For analyzing large datasets stored in Amazon Redshift.
-  - **X-Ray**: For distributed tracing of applications and microservices.
+    - **CloudWatch**: For monitoring AWS resources and applications.
+    - **OpenSearch**: For visualizing logs and search data.
+    - **Timestream**: For time-series data, ideal for IoT and operational applications.
+    - **Athena**: For querying S3 data using SQL.
+    - **Redshift**: For analyzing large datasets stored in Amazon Redshift.
+    - **X-Ray**: For distributed tracing of applications and microservices.
 
 - **Amazon Managed Service for Prometheus (AMP)**: Grafana integrates directly with AMP for visualizing Prometheus metrics, making it easier to monitor containerized applications, especially in Kubernetes environments.
 
 - **Extensive External Integrations**: Beyond AWS-native data sources, Amazon Managed Grafana supports integration with a wide variety of external data sources such as:
-  - **GitHub**, **Google**, **Azure**: For cloud-native monitoring.
-  - **MySQL**, **Redis**, **JSON**: For databases and application-specific metrics.
-  - **OpenTelemetry**: For collecting and visualizing traces and metrics from microservices.
+    - **GitHub**, **Google**, **Azure**: For cloud-native monitoring.
+    - **MySQL**, **Redis**, **JSON**: For databases and application-specific metrics.
+    - **OpenTelemetry**: For collecting and visualizing traces and metrics from microservices.
 
 - **Alerts and Notifications**: Amazon Managed Grafana supports alerts based on your custom queries, helping to keep teams informed about issues as they occur. It integrates with various notification channels, including Amazon SNS, email, and other alerting systems.
 

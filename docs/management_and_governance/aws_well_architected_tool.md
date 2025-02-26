@@ -8,9 +8,9 @@ The **AWS Well-Architected Tool** is a free service designed to help you review 
 2. **Answer Questions**: Provide answers to a series of questions related to your architecture. These questions are designed to evaluate the design of your system across the six pillars of the Well-Architected Framework.
 3. **Review Against the Six Pillars**: Your answers are analyzed to check compliance with best practices in areas such as security, cost, performance, and more.
 4. **Obtain Advice**: After completing the questionnaire, you receive a detailed report, which includes:
-   - Relevant **videos** and **documentation** to guide you on improvements.
-   - A **report** summarizing your architecture's alignment with best practices.
-   - A **dashboard** that provides a visual overview of your architecture's strengths and weaknesses.
+    - Relevant **videos** and **documentation** to guide you on improvements.
+    - A **report** summarizing your architecture's alignment with best practices.
+    - A **dashboard** that provides a visual overview of your architecture's strengths and weaknesses.
 
 - **Security and Compliance**: The tool helps ensure your workload adheres to security best practices, such as using the **least privilege principle**, **data encryption**, and **access control** mechanisms.
 

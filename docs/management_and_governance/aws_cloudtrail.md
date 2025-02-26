@@ -7,17 +7,17 @@ CloudTrail provides a comprehensive history of AWS account activity, enabling yo
 ## CloudTrail Event Types
 
 - **Management Events**: These are operations that are performed on resources in your AWS account, such as creating, modifying, or deleting resources. Examples include:
-  - Configuring security (e.g., `IAMAttachRolePolicy`)
-  - Configuring rules for routing data (e.g., `Amazon EC2CreateSubnet`)
-  - Setting up logging (e.g., `AWS CloudTrailCreateTrail`)
+    - Configuring security (e.g., `IAMAttachRolePolicy`)
+    - Configuring rules for routing data (e.g., `Amazon EC2CreateSubnet`)
+    - Setting up logging (e.g., `AWS CloudTrailCreateTrail`)
 
-  Management events are enabled by default in CloudTrail, and they can be further categorized into:
-  - **Read Events**: Operations that don’t modify resources, such as listing resources or viewing configurations.
-  - **Write Events**: Operations that modify resources, such as creating, deleting, or modifying resources.
+    Management events are enabled by default in CloudTrail, and they can be further categorized into:
+    - **Read Events**: Operations that don’t modify resources, such as listing resources or viewing configurations.
+    - **Write Events**: Operations that modify resources, such as creating, deleting, or modifying resources.
 
 - **Data Events**: These provide insights into resource-level activity, such as S3 object uploads or Lambda function invocations. Data events are not logged by default due to their high volume but can be enabled for supported resources. For example:
-  - Amazon S3 object-level activity (e.g., `GetObject`, `DeleteObject`, `PutObject`)
-  - AWS Lambda function execution (e.g., the `Invoke` API call)
+    - Amazon S3 object-level activity (e.g., `GetObject`, `DeleteObject`, `PutObject`)
+    - AWS Lambda function execution (e.g., the `Invoke` API call)
 
 ## CloudTrail Insights
 

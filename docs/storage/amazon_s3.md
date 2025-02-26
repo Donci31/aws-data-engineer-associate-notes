@@ -35,12 +35,12 @@ Amazon S3 event notifications can be leveraged to automatically trigger **AWS Gl
 
 - **S3 Object Lock**: Amazon S3 Object Lock is an Amazon S3 feature that allows you to store objects using a write once, read many (WORM) model. You can use WORM protection for scenarios where it is imperative that data is not changed or deleted after it has been written. Whether your business has a requirement to satisfy compliance regulations in the financial or healthcare sector, or you simply want to capture a golden copy of business records for later auditing and reconciliation, Amazon S3 Object Lock is the right tool for you. Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely.
 - **Encryption**:
-  - **Server-Side Encryption**: Request Amazon S3 to encrypt your object before saving it on disks in its data centers and then decrypt it when you download the objects.
+    - **Server-Side Encryption**: Request Amazon S3 to encrypt your object before saving it on disks in its data centers and then decrypt it when you download the objects.
     - SSE-S3 (S3-Managed Keys): S3 manages all keys and handles encryption and decryption automatically. Uses AES-256 encryption.
     - SSE-KMS (AWS Key Management Service-Managed Keys): Uses AWS KMS to manage the encryption keys, allowing for more control and auditing. Supports key rotation and additional access controls through AWS KMS.
     - SSE-C (Customer-Provided Keys): You provide your own encryption keys for S3 to use when encrypting and decrypting objects. S3 does not store the keys; they must be provided with each request.
-  - **Client-Side Encryption**: Client-side encryption is the act of encrypting your data locally to help ensure its security in transit and at rest. To encrypt your objects before you send them to Amazon S3, use the Amazon S3 Encryption Client. Amazon S3 receives your objects already encrypted; Amazon S3 does not play a role in encrypting or decrypting your objects.
-  - **AWS Key Management Service (AWS KMS)**: Allows you to manage your server-side encryption keys for encryption.
+    - **Client-Side Encryption**: Client-side encryption is the act of encrypting your data locally to help ensure its security in transit and at rest. To encrypt your objects before you send them to Amazon S3, use the Amazon S3 Encryption Client. Amazon S3 receives your objects already encrypted; Amazon S3 does not play a role in encrypting or decrypting your objects.
+    - **AWS Key Management Service (AWS KMS)**: Allows you to manage your server-side encryption keys for encryption.
 - **AWS CloudTrail**: log access requests to the S3 bucket for full visibility into who is accessing the data and what actions they are taking.
 
 To securely access data in Amazon S3 with **AWS Glue** while maintaining strict access control and auditing, it's critical to implement a combination of:
@@ -55,39 +55,39 @@ To securely access data in Amazon S3 with **AWS Glue** while maintaining strict 
 Amazon S3 offers a range of storage classes to meet different data storage needs, providing options to optimize cost, performance, and durability based on access frequency and retention requirements. Here are the key storage classes:
 
 - **S3 Standard**:
-  - **Use Case**: Frequently accessed data such as active content, mobile apps, and gaming files.
-  - **Features**: High durability (99.999999999% or 11 9’s), low latency, and high throughput.
-  - **Cost**: Higher storage cost for low-latency access and high performance.
+    - **Use Case**: Frequently accessed data such as active content, mobile apps, and gaming files.
+    - **Features**: High durability (99.999999999% or 11 9’s), low latency, and high throughput.
+    - **Cost**: Higher storage cost for low-latency access and high performance.
 
 - **S3 Intelligent-Tiering**:
-  - **Use Case**: Data with unpredictable access patterns; ideal for cases where access frequency varies over time.
-  - **Features**: designed to optimize costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead. It works by storing objects in two access tiers: one tier that is optimized for frequent access and another lower-cost tier that is optimized for infrequent access.
-  - **Minimum Storage Duration**: 30 days.
-  - **Cost**: Small monitoring fee per object, but no additional charges for tier transitions.
+    - **Use Case**: Data with unpredictable access patterns; ideal for cases where access frequency varies over time.
+    - **Features**: designed to optimize costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead. It works by storing objects in two access tiers: one tier that is optimized for frequent access and another lower-cost tier that is optimized for infrequent access.
+    - **Minimum Storage Duration**: 30 days.
+    - **Cost**: Small monitoring fee per object, but no additional charges for tier transitions.
 
 - **S3 Standard-IA (Infrequent Access)**:
-  - **Use Case**: Infrequently accessed data requiring immediate availability when needed, such as backups and disaster recovery files.
-  - **Features**: High durability and availability, but optimized for lower storage costs with a retrieval charge.
-  - **Minimum Storage Duration**: 30 days.
-  - **Cost**: Lower storage cost than S3 Standard; retrieval fees apply.
+    - **Use Case**: Infrequently accessed data requiring immediate availability when needed, such as backups and disaster recovery files.
+    - **Features**: High durability and availability, but optimized for lower storage costs with a retrieval charge.
+    - **Minimum Storage Duration**: 30 days.
+    - **Cost**: Lower storage cost than S3 Standard; retrieval fees apply.
 
 - **S3 One Zone-IA**:
-  - **Use Case**: Data that does not require multi-AZ resilience and can be re-created if lost, such as temporary or easily reproducible datasets.
-  - **Features**: Lower-cost option than S3 Standard-IA, storing data in a single Availability Zone.
-  - **Minimum Storage Duration**: 30 days.
-  - **Cost**: 20% lower than S3 Standard-IA, with a minimum storage duration of 30 days.
+    - **Use Case**: Data that does not require multi-AZ resilience and can be re-created if lost, such as temporary or easily reproducible datasets.
+    - **Features**: Lower-cost option than S3 Standard-IA, storing data in a single Availability Zone.
+    - **Minimum Storage Duration**: 30 days.
+    - **Cost**: 20% lower than S3 Standard-IA, with a minimum storage duration of 30 days.
 
 - **S3 Glacier**:
-  - **Use Case**: Long-term archival storage where retrieval speed can be flexible, such as compliance and regulatory data.
-  - **Features**: Ultra-low storage cost with three retrieval options—**Expedited**, **Standard**, and **Bulk**—each with different retrieval times.
-  - **Minimum Storage Duration**: 90 days.
-  - **Cost**: Lowest cost for archival data with retrieval charges that vary by retrieval speed.
+    - **Use Case**: Long-term archival storage where retrieval speed can be flexible, such as compliance and regulatory data.
+    - **Features**: Ultra-low storage cost with three retrieval options—**Expedited**, **Standard**, and **Bulk**—each with different retrieval times.
+    - **Minimum Storage Duration**: 90 days.
+    - **Cost**: Lowest cost for archival data with retrieval charges that vary by retrieval speed.
 
 - **S3 Glacier Deep Archive**:
-  - **Use Case**: Data that is rarely accessed, typically once or twice a year, and can afford retrieval times of 12 to 48 hours.
-  - **Features**: Lowest-cost storage class in S3, offering extremely low storage rates.
-  - **Minimum Storage Duration**: 180 days.
-  - **Cost**: Significantly cheaper than S3 Glacier, ideal for data meant to be stored for extended durations.
+    - **Use Case**: Data that is rarely accessed, typically once or twice a year, and can afford retrieval times of 12 to 48 hours.
+    - **Features**: Lowest-cost storage class in S3, offering extremely low storage rates.
+    - **Minimum Storage Duration**: 180 days.
+    - **Cost**: Significantly cheaper than S3 Glacier, ideal for data meant to be stored for extended durations.
 
 ### Amazon S3 Analytics
 
@@ -100,9 +100,9 @@ S3 Analytics examines access patterns to determine whether transitioning objects
 Amazon S3’s **Lifecycle Management** feature enables automated transitioning and deletion of objects over time based on specific rules. This is especially useful for data archiving, cost optimization, and compliance with data retention policies.
 
 - **S3 Lifecycle Configuration**: You can define rules to manage data storage costs and organize your data based on its access needs. For example:
-  - **Transition Rules**: Move objects to a lower-cost storage class after a specified number of days. For instance, transition objects to S3 Standard-IA after 30 days or to S3 Glacier after 365 days.
-  - **Expiration Rules**: Automatically delete objects after a specified time period, which can help with compliance and data hygiene.
-  - **Use Case**: Efficiently manage data across its lifecycle to reduce storage costs by moving data to the most cost-effective storage class based on access frequency and retention requirements.
+    - **Transition Rules**: Move objects to a lower-cost storage class after a specified number of days. For instance, transition objects to S3 Standard-IA after 30 days or to S3 Glacier after 365 days.
+    - **Expiration Rules**: Automatically delete objects after a specified time period, which can help with compliance and data hygiene.
+    - **Use Case**: Efficiently manage data across its lifecycle to reduce storage costs by moving data to the most cost-effective storage class based on access frequency and retention requirements.
 
 Amazon S3 Storage Classes can be configured at the object level and a single bucket can contain objects stored in multiple storage classes. You can upload objects directly to a class storage, or use S3 Lifecycle policies to transfer objects.
 
@@ -190,14 +190,14 @@ Amazon S3 Glacier is an archival storage class designed for long-term data stora
 - **Amazon S3 Glacier Instant Retrieval**: Provides millisecond retrieval for data that is accessed infrequently, such as quarterly data access. This class has a minimum storage duration of 90 days.
 
 - **Amazon S3 Glacier Flexible Retrieval**: Formerly known as Amazon S3 Glacier, this class supports:
-  - **Expedited** (1 to 5 minutes),
-  - **Standard** (3 to 5 hours),
-  - **Bulk** (5 to 12 hours), all at no additional retrieval cost.
+    - **Expedited** (1 to 5 minutes),
+    - **Standard** (3 to 5 hours),
+    - **Bulk** (5 to 12 hours), all at no additional retrieval cost.
 
     The minimum storage duration is 90 days.
 
 - **Amazon S3 Glacier Deep Archive**: The lowest-cost storage class for long-term storage. It supports:
-  - **Standard Retrieval** (12 hours), and
-  - **Bulk Retrieval** (48 hours).
+    - **Standard Retrieval** (12 hours), and
+    - **Bulk Retrieval** (48 hours).
 
     It has a minimum storage duration of 180 days.

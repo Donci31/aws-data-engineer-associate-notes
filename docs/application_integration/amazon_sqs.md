@@ -8,23 +8,23 @@ Amazon Simple Queue Service (SQS) is a fully managed message queuing service tha
 
 - The **standard queue** is the original offering of Amazon SQS and is designed for applications requiring high throughput.
 - **Features**:
-  - Scales automatically, supporting up to **15,000 messages per second**.
-  - Guarantees **at-least-once delivery**, meaning messages may be delivered more than once.
-  - Messages may arrive **out of order** (best-effort ordering).
-  - Maximum message size: **256 KB**.
-  - Default retention period of **4 days**, extendable up to **14 days**.
+    - Scales automatically, supporting up to **15,000 messages per second**.
+    - Guarantees **at-least-once delivery**, meaning messages may be delivered more than once.
+    - Messages may arrive **out of order** (best-effort ordering).
+    - Maximum message size: **256 KB**.
+    - Default retention period of **4 days**, extendable up to **14 days**.
 
 ### FIFO Queue
 
 - The **First-In-First-Out (FIFO) queue** is designed for applications requiring strict ordering and exactly-once message delivery.
 - **Features**:
-  - Guarantees messages are delivered in the exact order they are sent.
-  - Ensures each message is processed exactly once.
-  - Supports up to **3,000 messages per second** with batching or **300 messages per second** without batching.
-  - FIFO queues must have names ending with the `.fifo` suffix. The suffix counts towards
+    - Guarantees messages are delivered in the exact order they are sent.
+    - Ensures each message is processed exactly once.
+    - Supports up to **3,000 messages per second** with batching or **300 messages per second** without batching.
+    - FIFO queues must have names ending with the `.fifo` suffix. The suffix counts towards
 the 80-character queue name limit. To determine whether a queue is FIFO, you can check
 whether the queue name ends with the suffix.
-  - **Deduplication**: Messages with the same deduplication ID sent within **5 minutes** are treated as duplicates and are not processed again.
+    - **Deduplication**: Messages with the same deduplication ID sent within **5 minutes** are treated as duplicates and are not processed again.
 
 > Note: You can’t convert an existing standard queue into a FIFO queue. To make the move, you must either create a new FIFO queue for your application or delete your existing standard queue and recreate it as a FIFO queue.
 
@@ -79,8 +79,8 @@ to a queue. So, if you send a message with a 60-second timer, the message isn’
 
 - **Dead-Letter Queues** are used to isolate and handle messages that fail processing. Messages are moved to a DLQ after exceeding a configurable `MaxReceiveCount`.
 - **Benefits**:
-  - Debugging: DLQs help identify problematic messages and issues in the processing pipeline.
-  - Redrive Policy: Configured at the source queue, specifying the `MaxReceiveCount` and the DLQ to target failed messages. MaxReceiveCount refers to the number of times a message can be received from the queue before being deleted. When the limit is reached, the message will be sent to the dead letter queue. The default Maximum received is 10.
+    - Debugging: DLQs help identify problematic messages and issues in the processing pipeline.
+    - Redrive Policy: Configured at the source queue, specifying the `MaxReceiveCount` and the DLQ to target failed messages. MaxReceiveCount refers to the number of times a message can be received from the queue before being deleted. When the limit is reached, the message will be sent to the dead letter queue. The default Maximum received is 10.
 
 > Note: You cannot use dead-letter queues to postpone the delivery of new messages to the queue for a few seconds.
 ---
@@ -103,9 +103,9 @@ to a queue. So, if you send a message with a 60-second timer, the message isn’
 If you use a target tracking scaling policy in an Auto Scaling Group of EC2 instances based on a custom Amazon SQS queue metric, you may use an existing CloudWatch Amazon SQS metric like `ApproximateNumberOfMessagesVisible` for target tracking but you could still face an issue so that the number of messages in the queue might not change proportionally to the size of the Auto Scaling group that processes messages from the queue. The solution is to use a backlog per instance metric with the target value being the acceptable backlog per instance to maintain. To calculate your backlog per instance, divide the ApproximateNumberOfMessages queue attribute by the number of instances in the InService state for the Auto Scaling group. Then set a target value for the Acceptable backlog per instance.
 
 - Example:
-  - If an Auto Scaling group has 10 EC2 instances and a queue has 1,500 messages, each instance processes 150 messages.
-  - If each instance takes 0.1 seconds per message, processing 150 messages takes **15 seconds**.
-  - To reduce processing time to **10 seconds**, increase the instance count to **15**.
+    - If an Auto Scaling group has 10 EC2 instances and a queue has 1,500 messages, each instance processes 150 messages.
+    - If each instance takes 0.1 seconds per message, processing 150 messages takes **15 seconds**.
+    - To reduce processing time to **10 seconds**, increase the instance count to **15**.
 
 ## Use Cases
 

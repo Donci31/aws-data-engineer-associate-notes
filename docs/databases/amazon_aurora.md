@@ -33,7 +33,7 @@ Aurora Serverless is an on-demand, auto-scaling configuration for Amazon Aurora 
 
 An Aurora global database provides more comprehensive failover capabilities than the failover provided by a default Aurora DB cluster. By using an Aurora global database, you can plan for and recover from disasters fairly quickly.
 
- **Recovery Time Objective** (the time it takes a system to return to a working state after a disaster), for an Aurora global database can be in the order of minutes. **Recovery Point Objective** is typically measured in seconds.
+    **Recovery Time Objective** (the time it takes a system to return to a working state after a disaster), for an Aurora global database can be in the order of minutes. **Recovery Point Objective** is typically measured in seconds.
 
 With an Aurora global database, you can choose from two different approaches to failover:
 

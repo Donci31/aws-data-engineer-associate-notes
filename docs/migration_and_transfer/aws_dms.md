@@ -36,8 +36,8 @@ The source database remains fully operational during the migration, minimizing d
 AWS DMS provides tools for schema conversion and seamless data migration:
 
 - **Schema Conversion**: Automatically convert schemas for heterogeneous migrations. For example:
-  - **OLTP** (SQL Server or Oracle) to MySQL, PostgreSQL, or Aurora.
-  - **OLAP** (Teradata or Oracle) to Amazon Redshift.
+    - **OLTP** (SQL Server or Oracle) to MySQL, PostgreSQL, or Aurora.
+    - **OLAP** (Teradata or Oracle) to Amazon Redshift.
 - **Data Transformation**: AWS DMS handles all necessary data type conversions automatically during migration.
 
 For advanced schema conversion needs, users can leverage the **AWS Schema Conversion Tool (AWS SCT)** to locally convert source schemas before initiating the migration.
@@ -57,9 +57,9 @@ AWS DMS supports direct migrations to **Amazon S3** and **Amazon Redshift**:
 
 - **Amazon S3**: Data is written in **CSV format** by default but can be stored in **Apache Parquet format** for more compact storage and faster queries.
 - **Amazon Redshift**:
-  - The Amazon Redshift cluster must be in the same AWS account and the same AWS Region as the replication instance.
-  - Data is first moved to an Amazon S3 bucket.
-  - AWS DMS transfers the data to appropriate tables in Redshift.
+    - The Amazon Redshift cluster must be in the same AWS account and the same AWS Region as the replication instance.
+    - Data is first moved to an Amazon S3 bucket.
+    - AWS DMS transfers the data to appropriate tables in Redshift.
 
 ## Deployment Architecture
 

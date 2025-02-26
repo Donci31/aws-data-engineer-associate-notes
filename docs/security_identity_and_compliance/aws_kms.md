@@ -13,31 +13,31 @@ AWS Key Management Service (KMS) is a fully managed encryption service that allo
 ## KMS Key Types
 
 1. **Symmetric Keys**:
-   - AES-256 keys for both encryption and decryption.
-   - Integrated with AWS services for most encryption use cases.
-   - Key is never directly accessible; operations must call the KMS API.
+    - AES-256 keys for both encryption and decryption.
+    - Integrated with AWS services for most encryption use cases.
+    - Key is never directly accessible; operations must call the KMS API.
 2. **Asymmetric Keys**:
-   - RSA or ECC key pairs for encryption/decryption or digital signature verification.
-   - Public key is downloadable for use outside AWS, but private key remains secure.
-   - Use cases include cross-platform encryption where KMS API calls are impractical.
+    - RSA or ECC key pairs for encryption/decryption or digital signature verification.
+    - Public key is downloadable for use outside AWS, but private key remains secure.
+    - Use cases include cross-platform encryption where KMS API calls are impractical.
 
 ## Types of KMS Keys
 
 1. **AWS-Owned Keys**:
-   - Managed entirely by AWS and used by default (e.g., SSE-S3, SSE-SQS).
-   - Free of charge.
+    - Managed entirely by AWS and used by default (e.g., SSE-S3, SSE-SQS).
+    - Free of charge.
 2. **AWS-Managed Keys**:
-   - Automatically created by AWS for specific services (e.g., `aws/rds`, `aws/ebs`).
-   - Free of charge but limited to specific AWS services.
-   - Automatically rotated every year.
+    - Automatically created by AWS for specific services (e.g., `aws/rds`, `aws/ebs`).
+    - Free of charge but limited to specific AWS services.
+    - Automatically rotated every year.
 3. **Customer-Managed Keys**:
-   - Fully customizable and allows precise access control.
-   - $1 per month per key + API call charges.
-   - Can be configured for automatic or on-demand rotation.
-   - Supports features like cross-account access.
+    - Fully customizable and allows precise access control.
+    - $1 per month per key + API call charges.
+    - Can be configured for automatic or on-demand rotation.
+    - Supports features like cross-account access.
 4. **Imported Keys**:
-   - Bring your own keys to AWS for integration.
-   - $1 per month per key; rotation must be manual using an alias.
+    - Bring your own keys to AWS for integration.
+    - $1 per month per key; rotation must be manual using an alias.
 
 ## KMS Key Policies
 
@@ -46,10 +46,10 @@ Key policies in KMS define access controls for KMS keys and are required to gran
 ### Types of Key Policies
 
 1. **Default Key Policy**:
-   - Suitable for simple scenarios where only the account owner or administrators need access to the key and no cross-account sharing or detailed access restrictions are required
+    - Suitable for simple scenarios where only the account owner or administrators need access to the key and no cross-account sharing or detailed access restrictions are required
 2. **Custom Key Policy**:
-   - Allows granular control over access and administration.
-   - Necessary for enabling **cross-account access** or restricting specific operations.
+    - Allows granular control over access and administration.
+    - Necessary for enabling **cross-account access** or restricting specific operations.
 
 > KMS does not physically share keys across accounts. Instead, access to key usage is granted through policies.
 

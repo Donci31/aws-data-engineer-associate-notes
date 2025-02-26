@@ -7,32 +7,32 @@ EBS provides block-level storage that offers performance suitable for large-scal
 ## Key Features and Benefits
 
 1. **Storage Volume Types**:
-   EBS offers a range of volume types that provide flexibility to optimize for performance, cost, or both, based on workload requirements. Options include:
-   - **SSD-backed Volumes**: Suitable for transactional applications that require low latency and consistent IOPS, such as databases or OS boot volumes.
-     - **Provisioned IOPS SSD (io2)**: Delivers the highest IOPS consistency for mission-critical workloads.
-     - **General Purpose SSD (gp3)**: Balanced for most applications requiring SSD performance but at a lower cost.
-   - **HDD-backed Volumes**: Ideal for sequential workloads with high throughput needs, such as big data processing.
-     - **Throughput Optimized HDD (st1)**: For high-throughput, low-cost storage.
-     - **Cold HDD (sc1)**: The most economical choice, suited for infrequently accessed data.
+    EBS offers a range of volume types that provide flexibility to optimize for performance, cost, or both, based on workload requirements. Options include:
+    - **SSD-backed Volumes**: Suitable for transactional applications that require low latency and consistent IOPS, such as databases or OS boot volumes.
+        - **Provisioned IOPS SSD (io2)**: Delivers the highest IOPS consistency for mission-critical workloads.
+        - **General Purpose SSD (gp3)**: Balanced for most applications requiring SSD performance but at a lower cost.
+    - **HDD-backed Volumes**: Ideal for sequential workloads with high throughput needs, such as big data processing.
+        - **Throughput Optimized HDD (st1)**: For high-throughput, low-cost storage.
+        - **Cold HDD (sc1)**: The most economical choice, suited for infrequently accessed data.
 
 2. **Instance Boot and Storage Configuration**:
-   When launching an EC2 instance, you can choose between two types of root volumes:
-   - **EBS-backed AMIs**: Provide persistent storage that remains after the instance stops. Remember that EBS volumes are not phsycally attached. They use the network to communicate, which means more latency than instance store.
-   - **Instance Store-backed AMIs**: Offer temporary storage located on physical disks, which is cleared when the instance stops. This makes it suitable for cache data, temporary logs, or ephemeral workloads.
+    When launching an EC2 instance, you can choose between two types of root volumes:
+    - **EBS-backed AMIs**: Provide persistent storage that remains after the instance stops. Remember that EBS volumes are not phsycally attached. They use the network to communicate, which means more latency than instance store.
+    - **Instance Store-backed AMIs**: Offer temporary storage located on physical disks, which is cleared when the instance stops. This makes it suitable for cache data, temporary logs, or ephemeral workloads.
 
     By default, the root volume for an AMI backed by Amazon EBS is deleted when the instance terminates. You can change the default behavior to ensure that the volume persists after the instance terminates. Non-root EBS volumes remain available even after you terminate an instance to which the volumes were attached.
 3. **Automatic Data Replication**:
-   Each EBS volume is automatically replicated within its Availability Zone (AZ) to protect against data loss due to hardware failures. Volumes can be attached to EC2 instances within the same AZ, ensuring data resilience and high availability.
+    Each EBS volume is automatically replicated within its Availability Zone (AZ) to protect against data loss due to hardware failures. Volumes can be attached to EC2 instances within the same AZ, ensuring data resilience and high availability.
 
-   You can attach an Amazon EBS volume to an Amazon EC2 instance in the same Availability Zone (AZ). EBS volumes are linked to the AZ!
+    You can attach an Amazon EBS volume to an Amazon EC2 instance in the same Availability Zone (AZ). EBS volumes are linked to the AZ!
 
 4. **Data Encryption with AWS Key Management Service (KMS)**:
-   EBS volumes can be encrypted to secure data at rest, data in transit between the instance and volume, and data in associated snapshots. Encryption is achieved through AWS KMS, ensuring that sensitive information remains protected.
+    EBS volumes can be encrypted to secure data at rest, data in transit between the instance and volume, and data in associated snapshots. Encryption is achieved through AWS KMS, ensuring that sensitive information remains protected.
 
-   When you create an encrypted Amazon EBS volume and attach it to a supported instance type, data stored at rest on the volume, data moving between the volume and the instance, snapshots created from the volume and volumes created from those snapshots are all encrypted. It uses AWS Key Management Service (AWS KMS) customer master keys (CMK) when creating encrypted volumes and snapshots. Encryption operations occur on the servers that host Amazon EC2 instances, ensuring the security of both data-at-rest and data-in-transit between an instance and its attached Amazon EBS storage.
+    When you create an encrypted Amazon EBS volume and attach it to a supported instance type, data stored at rest on the volume, data moving between the volume and the instance, snapshots created from the volume and volumes created from those snapshots are all encrypted. It uses AWS Key Management Service (AWS KMS) customer master keys (CMK) when creating encrypted volumes and snapshots. Encryption operations occur on the servers that host Amazon EC2 instances, ensuring the security of both data-at-rest and data-in-transit between an instance and its attached Amazon EBS storage.
 
 5. **Elastic Volumes**:
-   Elastic Volumes enable on-the-fly changes to EBS volume attributes—such as size, performance, and volume type—without detaching the volume or stopping the instance. This flexibility supports real-time workload adjustments, making it easier to scale storage as needs evolve without incurring downtime.
+    Elastic Volumes enable on-the-fly changes to EBS volume attributes—such as size, performance, and volume type—without detaching the volume or stopping the instance. This flexibility supports real-time workload adjustments, making it easier to scale storage as needs evolve without incurring downtime.
 
 ## EBS Multi-Attach and Nitro Instances
 

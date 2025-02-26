@@ -23,8 +23,8 @@ AWS Config is a service that enables you to assess, audit, and evaluate the conf
 ## AWS Config Pricing
 
 - **Pricing Model**: AWS Config pricing is based on the number of configuration items recorded per region and the number of rule evaluations per region. The cost is:
-  - $0.003 per configuration item recorded per region
-  - $0.001 per config rule evaluation per region
+    - $0.003 per configuration item recorded per region
+    - $0.001 per config rule evaluation per region
 - **No Free Tier**: AWS Config does not offer a free tier for its service.
 
 ## CloudWatch vs CloudTrail vs AWS Config

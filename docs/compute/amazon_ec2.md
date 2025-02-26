@@ -11,21 +11,21 @@ At the core of Amazon EC2 is the **EC2 instance** – a virtual server running i
 EC2 instances are categorized based on their resource profile and optimized use case. The major families include:
 
 - **General Purpose Instances**: Balanced compute, memory, and network resources for a variety of diverse workloads.
-  - **T-series** (e.g., `t4g`, `t3`): Burstable performance instances.
-  - **M-series** (e.g., `m6i`, `m5`): Balanced resources for many types of workloads.
+    - **T-series** (e.g., `t4g`, `t3`): Burstable performance instances.
+    - **M-series** (e.g., `m6i`, `m5`): Balanced resources for many types of workloads.
 
 - **Compute Optimized**: Instances designed for compute-heavy workloads such as batch processing, video encoding, etc.
-  - **C-series** (e.g., `c7g`, `c5`): High-performance processors.
+    - **C-series** (e.g., `c7g`, `c5`): High-performance processors.
 
 - **Memory Optimized**: For workloads requiring high memory capacity, such as in-memory caches and real-time big data analytics.
-  - **R-series** (e.g., `r6g`, `r5`): Memory-intensive tasks.
+    - **R-series** (e.g., `r6g`, `r5`): Memory-intensive tasks.
 
 - **Storage Optimized**: For workloads that require high, sequential read and write access to very large datasets.
-  - **I-series** (e.g., `i3`, `i3en`): Local storage-heavy tasks.
+    - **I-series** (e.g., `i3`, `i3en`): Local storage-heavy tasks.
 
 - **Accelerated Computing**: These instances provide specialized hardware accelerators like GPUs or FPGAs, useful for machine learning, artificial intelligence, or scientific computation.
-  - **P-series** (e.g., `p4d`): GPU-powered instances for ML and high-performance computing.
-  - **Inf1**: Instances designed for deep learning inference.
+    - **P-series** (e.g., `p4d`): GPU-powered instances for ML and high-performance computing.
+    - **Inf1**: Instances designed for deep learning inference.
 
 ## 2. **Auto Scaling**
 

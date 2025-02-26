@@ -13,18 +13,18 @@ AWS Application Discovery Service offers two distinct methods to perform discove
 The **Agentless Discovery** method utilizes the **Application Discovery Service Agentless Collector** deployed in a **VMware vCenter** environment. This method eliminates the need for installing agents on individual virtual machines (VMs), simplifying the discovery process.
 
 - **Capabilities**:
-  - Identifies virtual machines and associated hosts within the vCenter environment.
-  - Collects **static configuration data**, such as:
+    - Identifies virtual machines and associated hosts within the vCenter environment.
+    - Collects **static configuration data**, such as:
     - Server hostnames
     - IP addresses
     - MAC addresses
     - Disk resource allocations
     - Database engine versions and schemas
-  - Gathers **utilization metrics**, including average and peak values for:
+    - Gathers **utilization metrics**, including average and peak values for:
     - CPU
     - RAM
     - Disk I/O
-  - Supports the discovery of database and analytics servers, enabling inventory collection and performance metric analysis without requiring installation on individual servers.
+    - Supports the discovery of database and analytics servers, enabling inventory collection and performance metric analysis without requiring installation on individual servers.
 
 This method is ideal for environments where minimal disruption and fast deployment are priorities.
 
@@ -33,12 +33,12 @@ This method is ideal for environments where minimal disruption and fast deployme
 The **Agent-Based Discovery** method uses the **AWS Application Discovery Agent** installed directly on each VM or physical server. This approach provides more detailed insights compared to agentless discovery, capturing in-depth performance and system data over time.
 
 - **Capabilities**:
-  - Captures **static configuration data**.
-  - Collects **detailed performance metrics**, such as:
+    - Captures **static configuration data**.
+    - Collects **detailed performance metrics**, such as:
     - CPU and memory utilization
     - Disk usage
     - Running processes
-  - Tracks **inbound and outbound network connections**, offering a comprehensive view of interdependencies and network traffic patterns.
+    - Tracks **inbound and outbound network connections**, offering a comprehensive view of interdependencies and network traffic patterns.
 
 This method is suitable for detailed migration planning and performance optimization, especially for complex environments requiring fine-grained visibility.
 
@@ -79,8 +79,8 @@ Through integration with **AWS Migration Hub**, all discovery data can be viewed
 ### Comprehensive Insights
 
 - Collects and analyzes historical and real-time **performance metrics**, including:
-  - CPU, memory, and disk usage for VMs.
-  - System configuration and network connection details for physical servers.
+    - CPU, memory, and disk usage for VMs.
+    - System configuration and network connection details for physical servers.
 
 ## Integration with AWS Migration Hub
 

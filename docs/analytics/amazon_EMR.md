@@ -21,26 +21,26 @@ For transaction-based analytics, **Delta Lake** can be used in conjunction with 
 An Amazon EMR cluster consists of different types of nodes, each serving specific purposes in data processing:
 
 1. **Master Node**:
-   - The master node manages the entire EMR cluster by running the necessary software to coordinate the distribution of tasks and data. It is responsible for task assignment, failure recovery, and managing cluster health. **It does not participate in data storage or computation.**
+    - The master node manages the entire EMR cluster by running the necessary software to coordinate the distribution of tasks and data. It is responsible for task assignment, failure recovery, and managing cluster health. **It does not participate in data storage or computation.**
 
 2. **Core Nodes**:
-   - Core nodes store data and perform the computational tasks needed for data processing. These nodes are vital for both **storage** and **computation**, and they ensure that the data is replicated and available during the cluster’s lifetime.
+    - Core nodes store data and perform the computational tasks needed for data processing. These nodes are vital for both **storage** and **computation**, and they ensure that the data is replicated and available during the cluster’s lifetime.
 
 3. **Task Nodes (Optional)**:
-   - Task nodes are optional nodes that serve to augment the cluster’s processing capacity. Unlike core nodes, task nodes **do not store data** but are dedicated to executing tasks assigned by the master node. Task nodes are ideal for **scaling computation** when workloads demand additional resources. They can also be provisioned as **spot instances**, offering further cost savings.
+    - Task nodes are optional nodes that serve to augment the cluster’s processing capacity. Unlike core nodes, task nodes **do not store data** but are dedicated to executing tasks assigned by the master node. Task nodes are ideal for **scaling computation** when workloads demand additional resources. They can also be provisioned as **spot instances**, offering further cost savings.
 
 ## Storage Options
 
 EMR supports several storage options to store input data, output data, and logs. Choosing the right file system depends on the specific needs of your application and the longevity of the data.
 
 1. **Hadoop Distributed File System (HDFS)**:
-   - HDFS is a distributed, scalable file system designed to store large data sets reliably. It splits data into blocks (typically 128MB) and replicates those blocks across different instances in the cluster, ensuring redundancy. However, one key disadvantage of HDFS is that it uses **ephemeral storage**; when the cluster terminates, the data is lost. This makes HDFS ideal for temporary or intermediate storage during data processing tasks.
+    - HDFS is a distributed, scalable file system designed to store large data sets reliably. It splits data into blocks (typically 128MB) and replicates those blocks across different instances in the cluster, ensuring redundancy. However, one key disadvantage of HDFS is that it uses **ephemeral storage**; when the cluster terminates, the data is lost. This makes HDFS ideal for temporary or intermediate storage during data processing tasks.
 
 2. **EMR File System (EMRFS)**:
-   - EMRFS is an implementation of the Hadoop file system that allows Amazon EMR to read and write data directly to **Amazon S3**. This provides a highly durable, cost-effective storage solution, as **Amazon S3** offers **persistent storage**, and your data remains intact even if the EMR cluster is terminated. **EMRFS** enables you to store large amounts of data without worrying about data loss.
+    - EMRFS is an implementation of the Hadoop file system that allows Amazon EMR to read and write data directly to **Amazon S3**. This provides a highly durable, cost-effective storage solution, as **Amazon S3** offers **persistent storage**, and your data remains intact even if the EMR cluster is terminated. **EMRFS** enables you to store large amounts of data without worrying about data loss.
 
 3. **Local File System**:
-   - The local file system refers to the local disk attached to the EC2 instances used in the EMR cluster. This is **ephemeral storage**, meaning data is lost when the instance is terminated. It is often used for caching or storing temporary data during the processing phases of a job.
+    - The local file system refers to the local disk attached to the EC2 instances used in the EMR cluster. This is **ephemeral storage**, meaning data is lost when the instance is terminated. It is often used for caching or storing temporary data during the processing phases of a job.
 
 ## External Metastores
 
@@ -49,10 +49,10 @@ By default, Hive stores its metastore information in a **MySQL** database locate
 Options for an external metastore:
 
 1. **AWS Glue Data Catalog**:
-   - The AWS Glue Data Catalog is a fully managed, scalable metadata repository that allows you to store your Hive metastore outside the EMR cluster. It also integrates with various other AWS services like Amazon Athena and Amazon Redshift, making it an ideal solution for managing metadata in a cloud-native environment.
+    - The AWS Glue Data Catalog is a fully managed, scalable metadata repository that allows you to store your Hive metastore outside the EMR cluster. It also integrates with various other AWS services like Amazon Athena and Amazon Redshift, making it an ideal solution for managing metadata in a cloud-native environment.
 
 2. **Amazon RDS or Amazon Aurora**:
-   - Alternatively, you can use Amazon RDS or Amazon Aurora to host your external Hive metastore. These managed database services offer high availability, durability, and scalability, which are crucial for storing large volumes of metadata.
+    - Alternatively, you can use Amazon RDS or Amazon Aurora to host your external Hive metastore. These managed database services offer high availability, durability, and scalability, which are crucial for storing large volumes of metadata.
 
 When adding data directly to the file system (like HDFS or S3) without updating the Hive metastore, Hive might not recognize new partitions. In such cases, you can run the `MSCK REPAIR TABLE` command to synchronize the metadata with the actual data layout in the file system.
 
@@ -65,10 +65,10 @@ This is especially important for environments where new data is frequently added
 Amazon EMR clusters can be categorized into two types, based on their operational lifespan and use case:
 
 1. **Transient Clusters**:
-   - Transient clusters are temporary clusters launched for specific, short-term tasks such as periodic batch processing, ETL (Extract, Transform, Load) jobs, or any job that completes within a defined time frame. Once the job completes, the cluster is automatically terminated. **Cost efficiency** is a significant advantage, as you only pay for the resources used during the job’s execution.
+    - Transient clusters are temporary clusters launched for specific, short-term tasks such as periodic batch processing, ETL (Extract, Transform, Load) jobs, or any job that completes within a defined time frame. Once the job completes, the cluster is automatically terminated. **Cost efficiency** is a significant advantage, as you only pay for the resources used during the job’s execution.
 
 2. **Long-Running Clusters**:
-   - Long-running clusters are designed to stay active over extended periods. These clusters are typically used for **interactive data analysis**, applications that require continuous access to processed data, or services that must be available at all times. While these clusters offer **continuous access** to your data and analytics tools, they incur ongoing costs for as long as the cluster remains active.
+    - Long-running clusters are designed to stay active over extended periods. These clusters are typically used for **interactive data analysis**, applications that require continuous access to processed data, or services that must be available at all times. While these clusters offer **continuous access** to your data and analytics tools, they incur ongoing costs for as long as the cluster remains active.
 
 ## Amazon EC2 Graviton
 

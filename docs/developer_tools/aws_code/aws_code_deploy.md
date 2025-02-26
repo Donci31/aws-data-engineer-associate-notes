@@ -6,8 +6,8 @@ AWS **CodeDeploy** is a fully managed deployment service that automates the depl
 
 - **Supports EC2 & On-Premises Deployments**: CodeDeploy can manage deployments to EC2 instances as well as on-premises servers, making it a flexible solution for hybrid cloud environments.
 - **Deployment Strategies**: CodeDeploy supports multiple deployment strategies, including:
-  - **Rolling deployments**: Gradual deployment of new application versions to EC2 instances.
-  - **Blue/Green deployments**: Shifting traffic between two environments (blue and green) to ensure minimal downtime and rapid rollback capabilities.
+    - **Rolling deployments**: Gradual deployment of new application versions to EC2 instances.
+    - **Blue/Green deployments**: Shifting traffic between two environments (blue and green) to ensure minimal downtime and rapid rollback capabilities.
 - **Integrated with AWS Services**: Easily integrates with services like CodePipeline for CI/CD, and Lambda for serverless deployments.
 - **Customizable Deployment**: CodeDeploy allows you to customize deployment scripts (like hooks) to run specific actions at various stages of the deployment process.
 

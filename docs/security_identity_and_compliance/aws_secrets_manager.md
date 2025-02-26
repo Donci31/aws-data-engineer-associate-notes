@@ -5,28 +5,28 @@ AWS Secrets Manager is a fully managed service designed to securely store, manag
 ## Key Features
 
 1. **Secret Rotation**:
-   - Secrets Manager allows you to configure automatic rotation of secrets at specified intervals (e.g., every X days).
-   - Rotation is automated using **AWS Lambda**, which can be customized to handle the logic of updating the secret and applying changes wherever needed.
+    - Secrets Manager allows you to configure automatic rotation of secrets at specified intervals (e.g., every X days).
+    - Rotation is automated using **AWS Lambda**, which can be customized to handle the logic of updating the secret and applying changes wherever needed.
 
 2. **Integration with RDS**:
-   - Secrets Manager integrates with Amazon RDS (including MySQL, PostgreSQL, and Aurora), making it easy to store and manage database credentials.
-   - Database credentials are securely rotated, ensuring that applications always use the most current credentials without needing manual intervention.
+    - Secrets Manager integrates with Amazon RDS (including MySQL, PostgreSQL, and Aurora), making it easy to store and manage database credentials.
+    - Database credentials are securely rotated, ensuring that applications always use the most current credentials without needing manual intervention.
 
 3. **Encryption with KMS**:
-   - Secrets stored in Secrets Manager are automatically encrypted using **AWS Key Management Service (KMS)**. This ensures that sensitive data, such as database passwords and API keys, are securely stored and accessible only to authorized users and applications.
+    - Secrets stored in Secrets Manager are automatically encrypted using **AWS Key Management Service (KMS)**. This ensures that sensitive data, such as database passwords and API keys, are securely stored and accessible only to authorized users and applications.
 
 4. **Multi-Region Support**:
-   - Secrets Manager supports replicating secrets across multiple AWS regions.
-   - It keeps **read replicas** of a primary secret in sync across regions.
-   - In the case of regional failures or disaster recovery, you can promote a read replica to become a **standalone secret**.
-   - This is beneficial for use cases like **multi-region applications**, **disaster recovery strategies**, and multi-region database deployments.
+    - Secrets Manager supports replicating secrets across multiple AWS regions.
+    - It keeps **read replicas** of a primary secret in sync across regions.
+    - In the case of regional failures or disaster recovery, you can promote a read replica to become a **standalone secret**.
+    - This is beneficial for use cases like **multi-region applications**, **disaster recovery strategies**, and multi-region database deployments.
 
 5. **Seamless Integration with Applications**:
-   - Applications can access secrets stored in Secrets Manager using the AWS SDK or API calls, eliminating the need to hard-code secrets into applications or store them in environment variables.
+    - Applications can access secrets stored in Secrets Manager using the AWS SDK or API calls, eliminating the need to hard-code secrets into applications or store them in environment variables.
 
 6. **Security and Compliance**:
-   - Secrets Manager is built with security in mind. It integrates with IAM to manage access permissions and audit the use of secrets with **AWS CloudTrail**.
-   - This helps maintain compliance with various security standards, including **HIPAA**, **SOC 2**, and **PCI DSS**.
+    - Secrets Manager is built with security in mind. It integrates with IAM to manage access permissions and audit the use of secrets with **AWS CloudTrail**.
+    - This helps maintain compliance with various security standards, including **HIPAA**, **SOC 2**, and **PCI DSS**.
 
 ## Comparison of Secrets Manager and Systems Manager Parameter Store
 

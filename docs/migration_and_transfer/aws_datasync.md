@@ -7,9 +7,9 @@ AWS DataSync is a fully managed online data transfer service that simplifies, au
 - **On-Premises/Other Cloud to AWS**: Transfers data from Network File System (NFS), Server Message Block (SMB), Hadoop Distributed File Systems (HDFS), or self-managed object storage to AWS storage services. This process requires deploying an agent in the source environment.
 - **AWS to AWS Transfers**: Migrates data between different AWS storage services (e.g., Amazon S3 to Amazon EFS) without the need for an agent.
 - **Cross-Service Support**: Supports data synchronization across:
-  - **Amazon S3**: All storage classes, including Glacier and Glacier Deep Archive.
-  - **Amazon EFS**: For scalable and elastic file storage.
-  - **Amazon FSx**: Includes FSx for Windows File Server, FSx for Lustre, FSx for OpenZFS, and FSx for NetApp ONTAP.
+    - **Amazon S3**: All storage classes, including Glacier and Glacier Deep Archive.
+    - **Amazon EFS**: For scalable and elastic file storage.
+    - **Amazon FSx**: Includes FSx for Windows File Server, FSx for Lustre, FSx for OpenZFS, and FSx for NetApp ONTAP.
 
 ## Reliability and Data Integrity
 
@@ -26,8 +26,8 @@ AWS DataSync is a fully managed online data transfer service that simplifies, au
 
 - **Task Scheduling**: Automates repetitive tasks with schedules on an hourly, daily, or weekly basis.
 - **Monitoring and Metrics**: Offers detailed visibility through:
-  - **Amazon CloudWatch**: Provides metrics, events, and logs for granular monitoring.
-  - **AWS DataSync API and Console**: Facilitates task creation and management.
+    - **Amazon CloudWatch**: Provides metrics, events, and logs for granular monitoring.
+    - **AWS DataSync API and Console**: Facilitates task creation and management.
 
 ## Long-Term Storage and Cost Optimization
 

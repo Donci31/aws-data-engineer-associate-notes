@@ -15,73 +15,73 @@ AWS Step Functions is a fully managed service that enables the design and execut
 AWS Step Functions provide a variety of state types to suit diverse workflow requirements:
 
 1. **Task State**:
-   - Represents a single unit of work, such as invoking:
-     - AWS Lambda functions.
-     - API Gateway endpoints.
-     - AWS SDK integrations (e.g., interacting with DynamoDB, S3, etc.).
-     - Third-party APIs.
-   - Focused on executing actions but **does not include branching logic**.
+    - Represents a single unit of work, such as invoking:
+        - AWS Lambda functions.
+        - API Gateway endpoints.
+        - AWS SDK integrations (e.g., interacting with DynamoDB, S3, etc.).
+        - Third-party APIs.
+    - Focused on executing actions but **does not include branching logic**.
 
 2. **Choice State**:
-   - Adds conditional logic by evaluating **Choice Rules** (e.g., comparisons) against input data.
-   - Allows workflows to choose between multiple branches of execution.
-   - Ideal for dynamic workflows where the next step depends on the characteristics of the input.
-   - Example Use Case:
-     - A workflow decides whether to transform data before loading it into Amazon DynamoDB, based on the content of the data.
+    - Adds conditional logic by evaluating **Choice Rules** (e.g., comparisons) against input data.
+    - Allows workflows to choose between multiple branches of execution.
+    - Ideal for dynamic workflows where the next step depends on the characteristics of the input.
+    - Example Use Case:
+        - A workflow decides whether to transform data before loading it into Amazon DynamoDB, based on the content of the data.
 
 3. **Wait State**:
-   - Delays execution for a specified time or until a certain timestamp.
-   - Useful for scenarios requiring time-based coordination between steps.
+    - Delays execution for a specified time or until a certain timestamp.
+    - Useful for scenarios requiring time-based coordination between steps.
 
 4. **Parallel State**:
-   - Executes multiple branches of a workflow concurrently.
-   - Aggregates results from all parallel branches before continuing the workflow.
-   - Useful for processing tasks that can be executed simultaneously.
-   - **Note**: Does not include conditional logic for choosing paths.
+    - Executes multiple branches of a workflow concurrently.
+    - Aggregates results from all parallel branches before continuing the workflow.
+    - Useful for processing tasks that can be executed simultaneously.
+    - **Note**: Does not include conditional logic for choosing paths.
 
 5. **Map State**:
-   - Iterates over a collection of items (e.g., JSON arrays) and executes steps for each item.
-   - Enables batch or parallel processing of datasets, such as:
-     - Processing files in an S3 bucket.
-     - Running computations over CSV data.
-   - Especially relevant for data engineering tasks.
-   - **Note**: Like Parallel, Map states do not evaluate conditions for path selection.
+    - Iterates over a collection of items (e.g., JSON arrays) and executes steps for each item.
+    - Enables batch or parallel processing of datasets, such as:
+        - Processing files in an S3 bucket.
+        - Running computations over CSV data.
+    - Especially relevant for data engineering tasks.
+    - **Note**: Like Parallel, Map states do not evaluate conditions for path selection.
 
 6. **Pass State**:
-   - Passes input data to output without modification.
-   - Useful for testing or as a placeholder in workflows.
+    - Passes input data to output without modification.
+    - Useful for testing or as a placeholder in workflows.
 
 7. **Succeed State**:
-   - Marks a workflow as successfully completed.
+    - Marks a workflow as successfully completed.
 
 8. **Fail State**:
-   - Marks a workflow as failed with a specified error message.
+    - Marks a workflow as failed with a specified error message.
 
 ## Features and Benefits
 
 ### Workflow Visualization
 
 - Step Functions provide **easy-to-use visualizations** of workflows:
-  - Graphical representations show execution flow and branching logic.
-  - Simplifies debugging and monitoring.
+    - Graphical representations show execution flow and branching logic.
+    - Simplifies debugging and monitoring.
 
 ### Error Handling and Retry Mechanisms
 
 - Advanced error-handling capabilities include:
-  - **Retries**: Automatic retries for failed steps based on configurable criteria.
-  - **Catch**: Capture specific errors and redirect to alternate steps or workflows.
+    - **Retries**: Automatic retries for failed steps based on configurable criteria.
+    - **Catch**: Capture specific errors and redirect to alternate steps or workflows.
 
 ### Audit and Execution History
 
 - Step Functions automatically record **execution history**, enabling:
-  - Tracking of inputs, outputs, and transitions for each step.
-  - Auditing workflows for debugging and compliance.
+    - Tracking of inputs, outputs, and transitions for each step.
+    - Auditing workflows for debugging and compliance.
 
 ### Wait States for Scheduling
 
 - The **Wait** state allows workflows to:
-  - Pause execution for an arbitrary amount of time.
-  - Synchronize processes or wait for external events.
+    - Pause execution for an arbitrary amount of time.
+    - Synchronize processes or wait for external events.
 
 ### Scalability and Performance
 
@@ -91,22 +91,22 @@ AWS Step Functions provide a variety of state types to suit diverse workflow req
 ## Use Cases
 
 1. **Data Transformation and Loading**:
-   - Use **Choice States** to evaluate whether data needs transformation before being loaded into databases like DynamoDB or Redshift.
+    - Use **Choice States** to evaluate whether data needs transformation before being loaded into databases like DynamoDB or Redshift.
 
 2. **Batch Processing**:
-   - Use **Map States** to process large datasets (e.g., JSON, S3 objects, CSV files).
+    - Use **Map States** to process large datasets (e.g., JSON, S3 objects, CSV files).
 
 3. **Parallel Execution**:
-   - Use **Parallel States** to process multiple independent tasks simultaneously, such as analyzing logs and generating reports concurrently.
+    - Use **Parallel States** to process multiple independent tasks simultaneously, such as analyzing logs and generating reports concurrently.
 
 4. **Time-Based Workflows**:
-   - Use **Wait States** for time delays or scheduled events (e.g., waiting for external systems to respond).
+    - Use **Wait States** for time delays or scheduled events (e.g., waiting for external systems to respond).
 
 5. **Error Resilience**:
-   - Implement retry policies and error-catching mechanisms for workflows that interact with unreliable APIs or services.
+    - Implement retry policies and error-catching mechanisms for workflows that interact with unreliable APIs or services.
 
 6. **Serverless Orchestration**:
-   - Integrate Step Functions with AWS Lambda to coordinate serverless microservices.
+    - Integrate Step Functions with AWS Lambda to coordinate serverless microservices.
 
 ---
 

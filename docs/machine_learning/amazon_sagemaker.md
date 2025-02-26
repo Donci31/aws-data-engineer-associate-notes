@@ -8,32 +8,32 @@ Amazon SageMaker **Lineage Tracking** offers a powerful feature to track and man
 
 - **Purpose**: This feature is integral for **model governance** and ensuring transparency, accuracy, and trustworthiness in ML workflows.
 - **Capabilities**:
-  - Provides a detailed record of every artifact used in the ML process.
-  - Ensures **auditability** and **regulatory compliance** by capturing every change, version, and relationship in the model development lifecycle.
-  - Facilitates the **reproducibility** of machine learning models, as all steps and decisions made during development are traceable.
-  - Helps **teams** quickly track the evolution of a model and all related data, which is essential for debugging, improving, and ensuring consistency in model development.
+    - Provides a detailed record of every artifact used in the ML process.
+    - Ensures **auditability** and **regulatory compliance** by capturing every change, version, and relationship in the model development lifecycle.
+    - Facilitates the **reproducibility** of machine learning models, as all steps and decisions made during development are traceable.
+    - Helps **teams** quickly track the evolution of a model and all related data, which is essential for debugging, improving, and ensuring consistency in model development.
 
 ## SageMaker Data Wrangler
 
 **SageMaker Data Wrangler** simplifies the data preprocessing and cleaning process. It provides an intuitive **visual interface** that allows users to import, clean, and explore datasets before using them in machine learning models.
 
 - **Key Benefits**:
-  - **Easy Data Import**: Allows easy import from a variety of sources such as Amazon S3, Amazon Redshift, and others.
-  - **Data Transformation**: It provides tools for data cleaning, feature engineering, and transformation without writing extensive code.
-  - **Exporting**: After processing, you can export the transformed data for further use in SageMaker or other services, simplifying the data pipeline.
+    - **Easy Data Import**: Allows easy import from a variety of sources such as Amazon S3, Amazon Redshift, and others.
+    - **Data Transformation**: It provides tools for data cleaning, feature engineering, and transformation without writing extensive code.
+    - **Exporting**: After processing, you can export the transformed data for further use in SageMaker or other services, simplifying the data pipeline.
 
 ## SageMaker Canvas
 
 **SageMaker Canvas** is a **no-code** feature of Amazon SageMaker that enables users from any technical background to build machine learning models without writing any code. It automates the entire process from data preparation to model training and deployment.
 
 - **Model Types**:
-  - **Numeric Prediction (Regression)**: Used for predicting continuous numeric values, such as house prices based on square footage.
-  - **Categorical Prediction (Classification)**: For categorizing data into groups. There are two types:
+    - **Numeric Prediction (Regression)**: Used for predicting continuous numeric values, such as house prices based on square footage.
+    - **Categorical Prediction (Classification)**: For categorizing data into groups. There are two types:
     - **Binary Classification**: For predicting between two categories, such as whether a customer will churn.
     - **Multi-Class Classification**: For predicting more than two categories, such as customer loan status.
-  - **Time Series Forecasting**: Used for making predictions over time, such as sales forecasting for the next quarter.
-  - **Image Prediction (Single-Label Image Classification)**: Used for image labeling and classification tasks.
-  - **Text Prediction (Multi-Class Text Classification)**: Useful for sentiment analysis of text data, such as classifying customer reviews into positive, negative, or neutral categories.
+    - **Time Series Forecasting**: Used for making predictions over time, such as sales forecasting for the next quarter.
+    - **Image Prediction (Single-Label Image Classification)**: Used for image labeling and classification tasks.
+    - **Text Prediction (Multi-Class Text Classification)**: Useful for sentiment analysis of text data, such as classifying customer reviews into positive, negative, or neutral categories.
 
 ## SageMaker Experiments
 
@@ -68,10 +68,10 @@ Once models are deployed into production, **SageMaker Model Monitor** helps to e
 - **Purpose**: The primary goal of Feature Store is to provide a centralized location to store and manage features, ensuring **reusability** and **consistency** across various ML models. It is a key part of the **data pipeline** and helps ensure that features are available for both training and real-time inference.
 
 - **Key Capabilities**:
-  - **Centralized Feature Management**: Organizes features used across multiple models and teams, ensuring that they are consistently defined and available for use.
-  - **Historical and Real-Time Data**: Feature Store supports both **batch features** for training and **real-time features** for inference. This means that teams can store features that are useful for both training machine learning models and making real-time predictions.
-  - **Feature Consistency**: Helps ensure that the same features used during training are also available in real-time inference, minimizing discrepancies and improving model reliability.
-  - **Versioning and Tracking**: Supports versioning of features, making it easy to track changes and maintain consistent feature sets for different model versions.
+    - **Centralized Feature Management**: Organizes features used across multiple models and teams, ensuring that they are consistently defined and available for use.
+    - **Historical and Real-Time Data**: Feature Store supports both **batch features** for training and **real-time features** for inference. This means that teams can store features that are useful for both training machine learning models and making real-time predictions.
+    - **Feature Consistency**: Helps ensure that the same features used during training are also available in real-time inference, minimizing discrepancies and improving model reliability.
+    - **Versioning and Tracking**: Supports versioning of features, making it easy to track changes and maintain consistent feature sets for different model versions.
 
 **Feature Sharing**:
 

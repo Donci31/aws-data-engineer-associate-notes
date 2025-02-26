@@ -9,10 +9,10 @@ AWS Backup offers a range of features that streamline backup management, provide
 - **Centralized Management**: AWS Backup allows for the centralized management of backup policies across multiple AWS services and accounts. This eliminates the need for custom scripts or manual processes and ensures consistency across services.
 - **Cross-Region and Cross-Account Backup**: AWS Backup supports backups across different AWS regions and accounts, making it easier to implement geographically distributed backups to enhance disaster recovery and compliance with data residency regulations.
 - **Wide Service Coverage**: AWS Backup provides support for several AWS services, ensuring you can centralize all data protection policies for the following resources:
-  - **Compute**: Amazon EC2 and Amazon EBS
-  - **Storage**: Amazon S3, Amazon EFS, and AWS Storage Gateway (Volume Gateway)
-  - **Databases**: Amazon RDS (including all supported database engines), Amazon Aurora, Amazon DynamoDB, Amazon DocumentDB, and Amazon Neptune
-  - **File Systems**: Amazon FSx (both Lustre and Windows File Server)
+    - **Compute**: Amazon EC2 and Amazon EBS
+    - **Storage**: Amazon S3, Amazon EFS, and AWS Storage Gateway (Volume Gateway)
+    - **Databases**: Amazon RDS (including all supported database engines), Amazon Aurora, Amazon DynamoDB, Amazon DocumentDB, and Amazon Neptune
+    - **File Systems**: Amazon FSx (both Lustre and Windows File Server)
 
 ## Backup Management and Scheduling
 
@@ -37,8 +37,8 @@ AWS Backup Vaults serve as secure storage locations for backups, offering the fl
 
 - **Backup Vaults**: AWS Backup Vaults allow you to organize and store backups securely with fine-grained access control and tagging.
 - **Backup Vault Lock**: This feature enables you to configure a WORM state for all backups stored in a Backup Vault, preventing accidental or malicious deletions, and ensuring backup retention periods remain unaltered.
-  - **Prevents Inadvertent or Malicious Deletion**: Once Backup Vault Lock is enabled, even AWS account root users are restricted from deleting or modifying retention settings, adding an additional layer of security to your backups.
-  - **Retention Integrity**: Backup Vault Lock helps protect the retention policies set in backup plans, preventing any changes that could compromise the integrity of your data retention.
+    - **Prevents Inadvertent or Malicious Deletion**: Once Backup Vault Lock is enabled, even AWS account root users are restricted from deleting or modifying retention settings, adding an additional layer of security to your backups.
+    - **Retention Integrity**: Backup Vault Lock helps protect the retention policies set in backup plans, preventing any changes that could compromise the integrity of your data retention.
 
 ## Compliance and Resilience
 

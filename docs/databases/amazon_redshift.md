@@ -206,7 +206,7 @@ Each queue can be configured to run a certain number of queries concurrently. Th
 
 ## **Amazon Redshift Logging and Auditing**
 
- Amazon Redshift provides **database auditing** functionality, logging connections, user activities, and query execution details. These logs are stored in Amazon S3 for easy access and security.
+    Amazon Redshift provides **database auditing** functionality, logging connections, user activities, and query execution details. These logs are stored in Amazon S3 for easy access and security.
 
 - **Connection Log**: Records authentication attempts, connections, and disconnections.
 - **User Log**: Tracks changes to database user definitions.

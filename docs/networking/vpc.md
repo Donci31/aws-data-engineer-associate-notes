@@ -7,9 +7,9 @@ Amazon Virtual Private Cloud (VPC) is a fundamental service that allows you to c
 subnets are used to divide a VPC into smaller network segments. Each subnet is associated with a specific availability zone (AZ) in a region, and can either be a public subnet or a private subnet
 
 - **Public subnet**: A public subnet is a subnet that is configured to allow communication between resources in the subnet and the internet. Instances placed in a public subnet can have public IP addresses and are typically used for resources that need to be accessed from the internet, such as web servers or load balancers.
-  - Use cases: Web servers, Load Balancers.
+    - Use cases: Web servers, Load Balancers.
 - **Private subnet**: A private subnet is a subnet that is isolated from direct access to the internet. Instances in a private subnet cannot communicate with the internet unless configured with a NAT Gateway or NAT Instance in a public subnet.
-  - Use cases: Databases, backend services.
+    - Use cases: Databases, backend services.
 
 ### IPv6 and VPC CIDR Blocks
 
