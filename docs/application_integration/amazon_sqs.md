@@ -83,6 +83,7 @@ to a queue. So, if you send a message with a 60-second timer, the message isn’
     - Redrive Policy: Configured at the source queue, specifying the `MaxReceiveCount` and the DLQ to target failed messages. MaxReceiveCount refers to the number of times a message can be received from the queue before being deleted. When the limit is reached, the message will be sent to the dead letter queue. The default Maximum received is 10.
 
 > Note: You cannot use dead-letter queues to postpone the delivery of new messages to the queue for a few seconds.
+
 ---
 
 ## Security Features
